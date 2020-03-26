@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://github.com/alone-wolf/alone-wolf.github.io</id>
+    <id>https://alone-wolf.github.io</id>
     <title>WH&apos;s Blog</title>
-    <updated>2020-03-26T13:49:44.990Z</updated>
+    <updated>2020-03-26T13:52:57.858Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://github.com/alone-wolf/alone-wolf.github.io"/>
-    <link rel="self" href="https://github.com/alone-wolf/alone-wolf.github.io/atom.xml"/>
+    <link rel="alternate" href="https://alone-wolf.github.io"/>
+    <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
     <subtitle>it&apos;s just a blog</subtitle>
-    <logo>https://github.com/alone-wolf/alone-wolf.github.io/images/avatar.png</logo>
-    <icon>https://github.com/alone-wolf/alone-wolf.github.io/favicon.ico</icon>
+    <logo>https://alone-wolf.github.io/images/avatar.png</logo>
+    <icon>https://alone-wolf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, WH&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[nmap usage 中文]]></title>
-        <id>https://github.com/alone-wolf/alone-wolf.github.io/post/nmap-usage-zhong-wen/</id>
-        <link href="https://github.com/alone-wolf/alone-wolf.github.io/post/nmap-usage-zhong-wen/">
+        <id>https://alone-wolf.github.io/post/nmap-usage-zhong-wen/</id>
+        <link href="https://alone-wolf.github.io/post/nmap-usage-zhong-wen/">
         </link>
         <updated>2020-03-26T13:06:25.000Z</updated>
         <content type="html"><![CDATA[<h4 id="namp扫描类型-选项扫描目标说明">namp[&lt;扫描类型&gt;... ][&lt;选项&gt;]{&lt;扫描目标说明&gt;}</h4>
@@ -133,8 +133,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[使用代码构建UI]]></title>
-        <id>https://github.com/alone-wolf/alone-wolf.github.io/post/shi-yong-dai-ma-gou-jian-ui/</id>
-        <link href="https://github.com/alone-wolf/alone-wolf.github.io/post/shi-yong-dai-ma-gou-jian-ui/">
+        <id>https://alone-wolf.github.io/post/shi-yong-dai-ma-gou-jian-ui/</id>
+        <link href="https://alone-wolf.github.io/post/shi-yong-dai-ma-gou-jian-ui/">
         </link>
         <updated>2020-03-26T13:04:35.000Z</updated>
         <content type="html"><![CDATA[<h3 id="0x00">0x00</h3>
@@ -159,8 +159,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://github.com/alone-wolf/alone-wolf.github.io/post/hello-gridea/</id>
-        <link href="https://github.com/alone-wolf/alone-wolf.github.io/post/hello-gridea/">
+        <id>https://alone-wolf.github.io/post/hello-gridea/</id>
+        <link href="https://alone-wolf.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
