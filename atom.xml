@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://alone-wolf.github.io</id>
     <title>WH&apos;s Blog</title>
-    <updated>2020-03-26T14:06:32.187Z</updated>
+    <updated>2020-03-26T14:11:12.796Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://alone-wolf.github.io"/>
     <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
@@ -10,6 +10,65 @@
     <logo>https://alone-wolf.github.io/images/avatar.png</logo>
     <icon>https://alone-wolf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, WH&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[分享的发起和接收]]></title>
+        <id>https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/</id>
+        <link href="https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/">
+        </link>
+        <updated>2020-03-26T13:43:20.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="分享动作的发起">分享动作的发起</h3>
+<ol>
+<li>
+<p>kotlin</p>
+<pre><code class="language-kotlin">val sendIntent = Intent()
+sendIntent.action = Intent.ACTION_SEND
+sendIntent.putExtra(Intent.EXTRA_TEXT,etText.text.toString())
+sendIntent.type = &quot;text/plain&quot;
+
+val shareIntent = Intent.createChooser(sendIntent,null)
+startActivity(shareIntent)
+</code></pre>
+</li>
+<li>
+<p>java</p>
+<p>on the way</p>
+</li>
+</ol>
+<h3 id="分享动作的接收">分享动作的接收</h3>
+<ol>
+<li>
+<p>清单 将如下代码放到接收分享的activity中</p>
+<pre><code class="language-xml">&lt;intent-filter&gt;
+    &lt;action android:name=&quot;android.intent.action.SEND&quot; /&gt;
+    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+    &lt;data android:mimeType=&quot;text/plain&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre>
+</li>
+<li>
+<p>接收分享的activity中</p>
+<pre><code class="language-java">Intent intent = getIntent();
+String action = intent.getAction();
+String type = intent.getType();
+
+if (Intent.ACTION_SEND.equals(action) &amp;&amp; type != null) {
+    switch (type){
+        case &quot;text/plain&quot;:{
+            String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+            Log.d(lTAG, &quot;recv data&gt;0 &quot;+text);
+            break;
+        }
+        default:{
+            Log.e(lTAG,&quot;recv wrong type&quot;);
+            break;
+        }
+    }
+}
+</code></pre>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[nmap usage 中文]]></title>
         <id>https://alone-wolf.github.io/post/nmap-usage-zhong-wen/</id>
