@@ -2,19 +2,28 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>使用代码构建UI | WH&#39;s Blog</title>
+<title>Android Activity | WH&#39;s Blog</title>
 <link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585311099566">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="使用代码构建UI | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Android Activity | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="0x00
-据纯纯写作的作者 xxx 说，使用java/kotlin绘制的ui界面的构建速度要优于xml绘制的layout，因此我开始了初学者的探索
-0x01 Activity
-众所周知，Activity在onCreate回调方法中通过set..." />
+    <meta name="description" content="
+
+standard 创建一个新实例
+Activity 由任务栈管理，每启动一个Act，就会被放入栈中，返回键就从栈顶移除一个
+
+
+singleTop task栈顶复用模式
+
+
+singleTask task栈内复用模式
+
+
+singleI..." />
     <meta name="keywords" content="Android dev" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -81,7 +90,7 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              使用代码构建UI
+              Android Activity
             </h2>
             <div class="post-info">
               <span>
@@ -99,24 +108,29 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="0x00">0x00</h3>
-<p>据纯纯写作的作者 xxx 说，使用java/kotlin绘制的ui界面的构建速度要优于xml绘制的layout，因此我开始了初学者的探索</p>
-<h3 id="0x01-activity">0x01 Activity</h3>
-<p>众所周知，Activity在onCreate回调方法中通过setContent()方法来设置界面</p>
-<p>这个方法的参数既可以是int类型的R.layout.main_activity这种格式</p>
-<p>还可以是实例化的xxlayout对象</p>
-<p>使用方法类似于用js操作dom创建web页面元素</p>
-<p>先实例化layout比如</p>
-<p><code>LinearLayout l = new LinearLayout(context);</code></p>
-<p><code>Button btn = new Button(context);</code></p>
-<p>然后向linearlayout中添加对象，也就各种view</p>
-<p><code>l.addView(btn);</code></p>
-<p>最后设置content</p>
-<h3 id="0x02-fragment">0x02 Fragment</h3>
-<p>在onCeateView回调方法中按照上述的方法创建各种实例对象</p>
-<p>将各种view添加到layout后，直接return该layout</p>
-<h3 id="0x03-javakotlin都是类似">0x03 java/kotlin都是类似</h3>
-<p>to be contioue</p>
+                <ul>
+<li>
+<p>standard 创建一个新实例<br>
+Activity 由任务栈管理，每启动一个Act，就会被放入栈中，返回键就从栈顶移除一个</p>
+</li>
+<li>
+<p>singleTop task栈顶复用模式</p>
+</li>
+<li>
+<p>singleTask task栈内复用模式</p>
+</li>
+<li>
+<p>singleInstance 全局单例模式</p>
+</li>
+</ul>
+<h3 id="kotlin-启动activity">kotlin 启动Activity</h3>
+<pre><code class="language-kotlin">val intent = Intent(context,RecvActivity::class.java)
+startActivity(intent)
+</code></pre>
+<pre><code class="language-kotlin">val intent = Intent(context,RecvActivity::class.java)
+intent.putExtra(&quot;text&quot;,&quot;value&quot;)
+startActivity(intent)
+</code></pre>
 
               </div>
               <div class="toc-container">
@@ -125,10 +139,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#0x00">0x00</a></li>
-<li><a href="#0x01-activity">0x01 Activity</a></li>
-<li><a href="#0x02-fragment">0x02 Fragment</a></li>
-<li><a href="#0x03-javakotlin%E9%83%BD%E6%98%AF%E7%B1%BB%E4%BC%BC">0x03 java/kotlin都是类似</a></li>
+<li><a href="#kotlin-%E5%90%AF%E5%8A%A8activity">kotlin 启动Activity</a></li>
 </ul>
 </li>
 </ul>
@@ -143,9 +154,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://alone-wolf.github.io/post/hello-gridea/">
+            <a href="https://alone-wolf.github.io/post/git-ji-chu-pei-zhi/">
               <h3 class="post-title">
-                Hello Gridea
+                Git 基础配置
               </h3>
             </a>
           </div>
