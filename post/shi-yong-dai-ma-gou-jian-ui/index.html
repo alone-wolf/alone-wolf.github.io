@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Android 使用代码构建UI | WH&#39;s Blog</title>
-<link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585366361976">
+<link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585401393345">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Android 使用代码构建UI | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
@@ -24,7 +24,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://alone-wolf.github.io">
-  <img class="avatar" src="https://alone-wolf.github.io/images/avatar.png?v=1585366361976" alt="">
+  <img class="avatar" src="https://alone-wolf.github.io/images/avatar.png?v=1585401393345" alt="">
   </a>
   <h1 class="site-title">
     WH&#39;s Blog
@@ -94,7 +94,7 @@
                 2020-03-26
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
                 <a href="https://alone-wolf.github.io/tag/jVpW7IEQF/" class="post-tag">
@@ -113,15 +113,28 @@
 <p>还可以是实例化的xxlayout对象</p>
 <p>使用方法类似于用js操作dom创建web页面元素</p>
 <p>先实例化layout比如</p>
-<p><code>LinearLayout l = new LinearLayout(context);</code></p>
-<p><code>Button btn = new Button(context);</code></p>
+<pre><code>LinearLayout l = new LinearLayout(context);
+Button btn = new Button(context);
+</code></pre>
 <p>然后向linearlayout中添加对象，也就各种view</p>
 <p><code>l.addView(btn);</code></p>
 <p>最后设置content</p>
 <h3 id="0x02-fragment">0x02 Fragment</h3>
 <p>在onCeateView回调方法中按照上述的方法创建各种实例对象</p>
 <p>将各种view添加到layout后，直接return该layout</p>
-<h3 id="0x03-javakotlin都是类似">0x03 java/kotlin都是类似</h3>
+<h3 id="0x04-textview-button-等设置属性">0x04 TextView Button 等设置属性</h3>
+<p>java</p>
+<pre><code class="language-java">Button btn = new Button(context);
+btn.setText(&quot;this is a btn&quot;);
+btn.setTextSize(20); //float
+btn.setPadding(15,15,15,15); // left top right bottom
+btn.setOnClickListener(new View.OnClickListener(){
+  @Override
+  public void onClick(View v){
+    // thhings
+  }
+});
+</code></pre>
 <p>to be contioue</p>
 
               </div>
@@ -134,7 +147,7 @@
 <li><a href="#0x00">0x00</a></li>
 <li><a href="#0x01-activity">0x01 Activity</a></li>
 <li><a href="#0x02-fragment">0x02 Fragment</a></li>
-<li><a href="#0x03-javakotlin%E9%83%BD%E6%98%AF%E7%B1%BB%E4%BC%BC">0x03 java/kotlin都是类似</a></li>
+<li><a href="#0x04-textview-button-%E7%AD%89%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7">0x04 TextView Button 等设置属性</a></li>
 </ul>
 </li>
 </ul>
