@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://alone-wolf.github.io</id>
     <title>WH&apos;s Blog</title>
-    <updated>2020-03-27T12:11:42.889Z</updated>
+    <updated>2020-03-28T03:33:22.193Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://alone-wolf.github.io"/>
     <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://alone-wolf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, WH&apos;s Blog</rights>
     <entry>
-        <title type="html"><![CDATA[分享的发起和接收]]></title>
+        <title type="html"><![CDATA[Android 分享的发起和接收]]></title>
         <id>https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/</id>
         <link href="https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/">
         </link>
@@ -67,23 +67,10 @@
         <updated>2020-03-26T13:06:25.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[使用代码构建UI]]></title>
+        <title type="html"><![CDATA[Android 使用代码构建UI]]></title>
         <id>https://alone-wolf.github.io/post/shi-yong-dai-ma-gou-jian-ui/</id>
         <link href="https://alone-wolf.github.io/post/shi-yong-dai-ma-gou-jian-ui/">
         </link>
         <updated>2020-03-26T13:04:35.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://alone-wolf.github.io/post/hello-gridea/</id>
-        <link href="https://alone-wolf.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></content>
     </entry>
 </feed>
