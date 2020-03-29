@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Android 分享的发起和接收 | WH&#39;s Blog</title>
+<title>myTTS update logs | WH&#39;s Blog</title>
 <link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585470999796">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Android 分享的发起和接收 | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="myTTS update logs | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -20,14 +20,13 @@
 </script>
 
 
-    <meta name="description" content="分享动作的发起
-
-
-kotlin
-val sendIntent = Intent()
-sendIntent.action = Intent.ACTION_SEND
-sendIntent.putExtra(Intent.EXTRA_TEXT,..." />
-    <meta name="keywords" content="Android dev" />
+    <meta name="description" content="v0.1（实际上app里是v1.0 忘记改了 也懒得改了）
+坚果手机的大爆炸并没有支持文字转语音功能，那么我就自己写一个好了
+这是一款Android平台的小工具
+暂时没有任何权限请求
+只在Mokee Q和Smartisan OS上测试过
+可..." />
+    <meta name="keywords" content="发布" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -99,75 +98,41 @@ sendIntent.putExtra(Intent.EXTRA_TEXT,..." />
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Android 分享的发起和接收
+              myTTS update logs
             </h2>
             <div class="post-info">
               <span>
-                2020-03-26
+                2020-03-29
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://alone-wolf.github.io/tag/jVpW7IEQF/" class="post-tag">
-                  # Android dev
+                <a href="https://alone-wolf.github.io/tag/0s_7Q-0VN/" class="post-tag">
+                  # 发布
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="分享动作的发起">分享动作的发起</h3>
-<ol>
-<li>
-<p>kotlin</p>
-<pre><code>val sendIntent = Intent()
-sendIntent.action = Intent.ACTION_SEND
-sendIntent.putExtra(Intent.EXTRA_TEXT,etText.text.toString())
-sendIntent.type = &quot;text/plain&quot;
-
-val shareIntent = Intent.createChooser(sendIntent,null)
-startActivity(shareIntent)
-</code></pre>
-</li>
-<li>
-<p>java</p>
-<p>on the way</p>
-</li>
-</ol>
-<h3 id="分享动作的接收">分享动作的接收</h3>
-<ol>
-<li>
-<p>清单 将如下代码放到接收分享的activity中</p>
-<pre><code class="language-xml">&lt;intent-filter&gt;
-    &lt;action android:name=&quot;android.intent.action.SEND&quot; /&gt;
-    &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
-    &lt;data android:mimeType=&quot;text/plain&quot; /&gt;
-&lt;/intent-filter&gt;
-</code></pre>
-</li>
-<li>
-<p>接收分享的activity中</p>
-<pre><code class="language-java">Intent intent = getIntent();
-String action = intent.getAction();
-String type = intent.getType();
-
-if (Intent.ACTION_SEND.equals(action) &amp;&amp; type != null) {
-    switch (type){
-        case &quot;text/plain&quot;:{
-            String text = intent.getStringExtra(Intent.EXTRA_TEXT);
-            Log.d(lTAG, &quot;recv data&gt;0 &quot;+text);
-            break;
-        }
-        default:{
-            Log.e(lTAG,&quot;recv wrong type&quot;);
-            break;
-        }
-    }
-}
-</code></pre>
-</li>
-</ol>
+                <h3 id="v01实际上app里是v10-忘记改了-也懒得改了">v0.1（实际上app里是v1.0 忘记改了 也懒得改了）</h3>
+<p>坚果手机的大爆炸并没有支持文字转语音功能，那么我就自己写一个好了<br>
+这是一款Android平台的小工具<br>
+暂时没有任何权限请求<br>
+只在Mokee Q和Smartisan OS上测试过<br>
+可能会在华为手机上有些兼容性问题<br>
+加入了使用限制，可能哪一天打不开了就说明该更新了<br>
+当然未来的正式版中这个使用限制应该会被去掉（看心情）<br>
+本来是想上架酷安的，然而手贱弄丢了最初提交审核的版本的签名密钥</p>
+<p>功能：</p>
+<ul>
+<li>接收文本分享，SOS中可以将myTTS放到一步边栏（顶栏）</li>
+<li>借鉴了Google Translate的思路，在系统级长按文本选择弹出的操作框中加入了个按钮，能够选中并直接进入朗读界面（然而SOS貌似阉割了这个API，该API原生6.0开始支持）<br>
+<a href="https://www.lanzous.com/iard9gf">下载地址</a><br>
+<img src="https://wx1.sinaimg.cn/mw690/007c6HjBly1gdatstkh72j30u01o01kx.jpg" alt="" loading="lazy"><br>
+<img src="https://wx2.sinaimg.cn/mw690/007c6HjBly1gdatstj5wej30u01o0nc0.jpg" alt="" loading="lazy"></li>
+</ul>
 
               </div>
               <div class="toc-container">
@@ -176,8 +141,7 @@ if (Intent.ACTION_SEND.equals(action) &amp;&amp; type != null) {
 <ul>
 <li>
 <ul>
-<li><a href="#%E5%88%86%E4%BA%AB%E5%8A%A8%E4%BD%9C%E7%9A%84%E5%8F%91%E8%B5%B7">分享动作的发起</a></li>
-<li><a href="#%E5%88%86%E4%BA%AB%E5%8A%A8%E4%BD%9C%E7%9A%84%E6%8E%A5%E6%94%B6">分享动作的接收</a></li>
+<li><a href="#v01%E5%AE%9E%E9%99%85%E4%B8%8Aapp%E9%87%8C%E6%98%AFv10-%E5%BF%98%E8%AE%B0%E6%94%B9%E4%BA%86-%E4%B9%9F%E6%87%92%E5%BE%97%E6%94%B9%E4%BA%86">v0.1（实际上app里是v1.0 忘记改了 也懒得改了）</a></li>
 </ul>
 </li>
 </ul>
@@ -192,9 +156,9 @@ if (Intent.ACTION_SEND.equals(action) &amp;&amp; type != null) {
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://alone-wolf.github.io/post/python3-tui-dao-shi/">
+            <a href="https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/">
               <h3 class="post-title">
-                python3 推导式
+                Android 分享的发起和接收
               </h3>
             </a>
           </div>
