@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | WH&#39;s Blog</title>
+<title>Android Fragment | WH&#39;s Blog</title>
 <link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585471027129">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="关于 | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Android Fragment | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -21,14 +21,15 @@
 
 
     <meta name="description" content="
-欢迎来到我的小站呀，很高兴遇见你！🤝
 
-🏠 关于本站
-👨‍💻 博主是谁
-⛹ 兴趣爱好
-📬 联系我呀
-..." />
-    <meta name="keywords" content="" />
+fragment 有自己的生命周期
+
+
+fragment 依赖于Act
+
+
+通过getActivity()获取所在Act; Act通过FragmentManager的findFragmentById()或findFragmentByTa..." />
+    <meta name="keywords" content="Android dev" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -100,37 +101,154 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              Android Fragment
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2020-03-26
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
+              
+                <a href="https://alone-wolf.github.io/tag/jVpW7IEQF/" class="post-tag">
+                  # Android dev
+                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+                <ul>
+<li>
+<p>fragment 有自己的生命周期</p>
+</li>
+<li>
+<p>fragment 依赖于Act</p>
+</li>
+<li>
+<p>通过getActivity()获取所在Act; Act通过FragmentManager的findFragmentById()或findFragmentByTag()获取Fragment</p>
+</li>
+<li>
+<p>Fragment Activity multi to multi</p>
+</li>
+</ul>
+<h3 id="fragment-完整的生命周期">fragment 完整的生命周期</h3>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th style="text-align:left">Fragment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Created</td>
+<td style="text-align:left">onAttach</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">onCreate</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">onCreateView</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">onActivityCreated</td>
+</tr>
+<tr>
+<td>Started</td>
+<td style="text-align:left">onStarted</td>
+</tr>
+<tr>
+<td>Resumed</td>
+<td style="text-align:left">onResume</td>
+</tr>
+<tr>
+<td>Paused</td>
+<td style="text-align:left">onPause</td>
+</tr>
+<tr>
+<td>Stopped</td>
+<td style="text-align:left">onStop</td>
+</tr>
+<tr>
+<td>Destroyed</td>
+<td style="text-align:left">onDestroyView</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">onDestroy</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:left">onDeatch</td>
+</tr>
+</tbody>
+</table>
+<p><strong>onAttach() ：</strong><br>
+当Fragment与Activity发生关联时调用。</p>
+<p><strong>onCreate()：</strong><br>
+创建Fragment时被回调。</p>
+<p><strong>onCreateView()：</strong><br>
+每次创建、绘制该Fragment的View组件时回调该方法，Fragment将会显示该方法返回的View 组件。</p>
+<p><strong>onActivityCreated()：</strong><br>
+当 Fragment 所在的Activity被启动完成后回调该方法。</p>
+<p><strong>onStart()：</strong><br>
+启动 Fragment 时被回调，此时Fragment可见。</p>
+<p><strong>onResume()：</strong><br>
+恢复 Fragment 时被回调，获取焦点时回调。</p>
+<p><strong>onPause()：</strong><br>
+暂停 Fragment 时被回调，失去焦点时回调。</p>
+<p><strong>onStop()：</strong><br>
+停止 Fragment 时被回调，Fragment不可见时回调。</p>
+<p><strong>onDestroyView()：</strong><br>
+销毁与Fragment有关的视图，但未与Activity解除绑定。</p>
+<p><strong>onDestroy()：</strong><br>
+销毁 Fragment 时被回调。</p>
+<p><strong>onDetach()：</strong><br>
+与onAttach相对应，当Fragment与Activity关联被取消时调用。</p>
+<h3 id="生命周期调用">生命周期调用</h3>
+<ol>
+<li>
+<p>创建fragment</p>
+<p>onAttach -&gt; onCreate -&gt; onCreateView -&gt; onActivityCreated -&gt; onStart -&gt; onResume</p>
+</li>
+<li>
+<p>按下home 回到桌面/锁屏</p>
+<p>onPause -&gt; onStop</p>
+</li>
+<li>
+<p>从桌面回到fragment/解锁</p>
+<p>onStart -&gt; onResume</p>
+</li>
+<li>
+<p>切换到其他fragment</p>
+<p>onPause -&gt; onStop -&gt; onDestroyView</p>
+</li>
+<li>
+<p>切换回本身的fragment</p>
+<p>onCreateView -&gt; onActivityCreated -&gt; onStart -&gt; onResume</p>
+</li>
+<li>
+<p>按下back退出</p>
+<p>onPause -&gt; onStop -&gt; onDestroyView -&gt; onDestroy -&gt; onDetach</p>
+</li>
+</ol>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li>
+<ul>
+<li><a href="#fragment-%E5%AE%8C%E6%95%B4%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">fragment 完整的生命周期</a></li>
+<li><a href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%B0%83%E7%94%A8">生命周期调用</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -140,6 +258,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://alone-wolf.github.io/post/git-ji-chu-pei-zhi/">
+              <h3 class="post-title">
+                Git 基础配置
+              </h3>
+            </a>
+          </div>
         
 
         
