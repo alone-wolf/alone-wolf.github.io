@@ -350,6 +350,23 @@ td {
   flex-direction: column;
   padding: 0 24px;
 }
+.friend-box {
+  float: left;
+  width: calc(50% - 20px);
+  margin: 15px 10px;
+}
+.friend-box img.friend-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50% !important;
+  float: left;
+  margin: 0 15px 0 0 !important;
+}
+.friend-box .flink-info {
+  height: 70px;
+  overflow: hidden;
+  line-height: 24px;
+}
 .site-header {
   padding: 48px 0;
   text-align: center;
