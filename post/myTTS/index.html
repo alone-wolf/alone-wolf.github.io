@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>myTTS update logs | WH&#39;s Blog</title>
-<link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585653680737">
+<link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1585730370035">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="myTTS update logs | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
@@ -20,14 +20,14 @@
 </script>
 
 
-    <meta name="description" content="后续更新预告
+    <meta name="description" content="TODO
 
-重构界面，使用tab+page
+重构界面，使用底部导航栏
 添加more页面，附上本博客和myTTS的开源地址
 添加语言选择 语速 音调等
 添加暂停按钮
 修复朗读可以无限次点击，造成不停朗读的bug
-测试文本自定义 将测试文本放到hint中，并置空原文..." />
+测试文本自定义 置空原文本框，测试文本放进提示文本中，方便一步..." />
     <meta name="keywords" content="置顶,发布" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -37,7 +37,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://alone-wolf.github.io">
-  <img class="avatar" src="https://alone-wolf.github.io/images/avatar.png?v=1585653680737" alt="">
+  <img class="avatar" src="https://alone-wolf.github.io/images/avatar.png?v=1585730370035" alt="">
   </a>
   <h1 class="site-title">
     WH&#39;s Blog
@@ -128,24 +128,22 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="后续更新预告">后续更新预告</h3>
+                <h3 id="todo">TODO</h3>
 <ul>
-<li>重构界面，使用tab+page</li>
-<li>添加more页面，附上本博客和myTTS的开源地址</li>
+<li><s>重构界面，使用底部导航栏</s></li>
+<li><s>添加more页面，附上本博客和myTTS的开源地址</s></li>
 <li>添加语言选择 语速 音调等</li>
 <li>添加暂停按钮</li>
-<li>修复朗读可以无限次点击，造成不停朗读的bug</li>
-<li>测试文本自定义 将测试文本放到hint中，并置空原文本框</li>
+<li><s>修复朗读可以无限次点击，造成不停朗读的bug</s></li>
+<li><s>测试文本自定义 置空原文本框，测试文本放进提示文本中，方便一步拖拽文本使用</s></li>
 <li>修改使语音引擎检测结果显示更加明确</li>
 <li>more things are on the way</li>
 </ul>
-<h3 id="todo">TODO</h3>
-<ul>
-<li>录制并添加视频</li>
-<li>换用更好的图片显示方法/更好的图床/调整图片大小</li>
-<li>想起再加</li>
-</ul>
-<h3 id="使用方法">使用方法</h3>
+<!-- ### TODO
+* 录制并添加视频
+* 换用更好的图片显示方法/更好的图床/调整图片大小
+* 想起再加 -->
+<h2 id="使用方法">使用方法</h2>
 <ul>
 <li>坚果手机通过大爆炸提取文字（可以直接选取文字的地方可以不用大爆炸），使用一步拖拽到或者直接将选中的文字分享给myTTS，接收文字后myTTS会弹出一个提示框，如果你的手机语音引擎没问题，点击朗读就能听到声音了</li>
 <li>非坚果手机可以通过选中文本，点击分享，选择myTTS，后面的操作同上意</li>
@@ -153,14 +151,29 @@
 <li>对于MoKee LOS 等类原生或原生系统或者点击朗读不出声的手机，需要安装google 语音转文本并在设置下载汉语的数据包</li>
 <li>实际朗读效果取决于用户手机的TTS即文本转语音引擎的实际效果，不同手机不同系统甚至不同TTS版本不同发音人不同的TTS设置，最后的合成效果都是不一定相同的</li>
 </ul>
+<h3 id="功能">功能：</h3>
+<ul>
+<li>接收文本分享，SOS中可以将myTTS放到一步边栏（顶栏）</li>
+<li>借鉴了Google Translate的思路，在系统级长按文本选择弹出的操作框中加入了个按钮，能够选中并直接进入朗读界面（然而SOS貌似阉割了这个API，该API原生6.0开始支持）</li>
+</ul>
+<h2 id="更新日志">更新日志</h2>
+<h3 id="v11-alpha">v1.1-alpha</h3>
+<ul>
+<li>修改：完成了部分汉化</li>
+<li>修改：为了进一步发挥一步的优势，将测试文本展示方式进行修改，现在你可以将文本跨屏拖进myTTS中了</li>
+<li>修改：修复朗读可以无限次点击，造成不停朗读的bug</li>
+<li>上架：本版本可以在酷安搜索并下载了</li>
+<li>one more thing：if you don't use CoolApk, you can also download the apk <a href="https://t00y.com/file/25487671-434348468">here</a></li>
+</ul>
 <h3 id="v10-alpha本次版本号没有忘记修改">v1.0-alpha（本次版本号没有忘记修改）</h3>
 <ul>
-<li>首先庆祝我修改包名重新上架，目前仍处于审核状态中，稍后将会上架，应用名称仍然是myTTS</li>
-<li>因为修改了包名，请先卸载原应用重新下载安装</li>
-<li>本次更新重构了整个界面，添加了底部导航栏</li>
-<li>添加了设置界面，为以后添加更多自定义设置打好基础</li>
-<li>增加了接收文本后自动剔除换行符的动作</li>
-<li>神奇的是，从java kotlin混合编程改作纯java项目，居然把apk的体积降低了将近0.9MB</li>
+<li>喜大普奔：截至2020年4月1日下午，myTTS又重新上架了，全新的包名，虽然可以和旧版共存，但是有什么必要呢</li>
+<li><s>首先庆祝我修改包名重新上架，目前仍处于审核状态中，稍后将会上架，应用名称仍然是myTTS</s></li>
+<li>提示：因为修改了包名，请先卸载原应用重新下载安装</li>
+<li>修改：本次更新重构了整个界面，添加了底部导航栏</li>
+<li>添加：增加了设置界面，为以后添加更多自定义设置打好基础</li>
+<li>添加：增加了接收文本后自动剔除换行符的动作</li>
+<li>one more thing：从java kotlin混合编程改作纯java项目，居然把apk的体积减少了将近0.9MB</li>
 </ul>
 <h3 id="v01实际上app里是v10-忘记改了-也懒得改了">v0.1（实际上app里是v1.0 忘记改了 也懒得改了）</h3>
 <p>坚果手机的大爆炸并没有支持文字转语音功能，那么我就自己写一个好了<br>
@@ -171,11 +184,6 @@
 加入了使用限制，可能哪一天打不开了就说明该更新了<br>
 当然未来的正式版中这个使用限制应该会被去掉（看心情）<br>
 本来是想上架酷安的，然而手贱弄丢了最初提交审核的版本的签名密钥</p>
-<p>功能：</p>
-<ul>
-<li>接收文本分享，SOS中可以将myTTS放到一步边栏（顶栏）</li>
-<li>借鉴了Google Translate的思路，在系统级长按文本选择弹出的操作框中加入了个按钮，能够选中并直接进入朗读界面（然而SOS貌似阉割了这个API，该API原生6.0开始支持）</li>
-</ul>
 <h4 id="下载地址"><a href="https://www.lanzous.com/iard9gf">下载地址</a></h4>
 <p><img src="https://wx1.sinaimg.cn/mw690/007c6HjBly1gdatstkh72j30u01o01kx.jpg" alt="" loading="lazy"><br>
 <img src="https://wx2.sinaimg.cn/mw690/007c6HjBly1gdatstj5wej30u01o0nc0.jpg" alt="" loading="lazy"></p>
@@ -187,9 +195,17 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E5%90%8E%E7%BB%AD%E6%9B%B4%E6%96%B0%E9%A2%84%E5%91%8A">后续更新预告</a></li>
 <li><a href="#todo">TODO</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a>
+<ul>
+<li><a href="#%E5%8A%9F%E8%83%BD">功能：</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97">更新日志</a>
+<ul>
+<li><a href="#v11-alpha">v1.1-alpha</a></li>
 <li><a href="#v10-alpha%E6%9C%AC%E6%AC%A1%E7%89%88%E6%9C%AC%E5%8F%B7%E6%B2%A1%E6%9C%89%E5%BF%98%E8%AE%B0%E4%BF%AE%E6%94%B9">v1.0-alpha（本次版本号没有忘记修改）</a></li>
 <li><a href="#v01%E5%AE%9E%E9%99%85%E4%B8%8Aapp%E9%87%8C%E6%98%AFv10-%E5%BF%98%E8%AE%B0%E6%94%B9%E4%BA%86-%E4%B9%9F%E6%87%92%E5%BE%97%E6%94%B9%E4%BA%86">v0.1（实际上app里是v1.0 忘记改了 也懒得改了）</a>
 <ul>
