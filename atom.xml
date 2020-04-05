@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://alone-wolf.github.io</id>
     <title>WH&apos;s Blog</title>
-    <updated>2020-04-03T09:52:20.192Z</updated>
+    <updated>2020-04-05T10:18:39.302Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://alone-wolf.github.io"/>
     <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://alone-wolf.github.io/images/avatar.png</logo>
     <icon>https://alone-wolf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, WH&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Feed 分类]]></title>
+        <id>https://alone-wolf.github.io/post/-m7gPmuDB/</id>
+        <link href="https://alone-wolf.github.io/post/-m7gPmuDB/">
+        </link>
+        <updated>2020-04-04T13:24:01.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[myTTS update logs]]></title>
         <id>https://alone-wolf.github.io/post/myTTS/</id>
@@ -72,12 +79,5 @@
         <link href="https://alone-wolf.github.io/post/git-ji-chu-pei-zhi/">
         </link>
         <updated>2020-03-26T13:26:19.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[nmap usage 中文]]></title>
-        <id>https://alone-wolf.github.io/post/nmap-usage-zhong-wen/</id>
-        <link href="https://alone-wolf.github.io/post/nmap-usage-zhong-wen/">
-        </link>
-        <updated>2020-03-26T13:06:25.000Z</updated>
     </entry>
 </feed>
