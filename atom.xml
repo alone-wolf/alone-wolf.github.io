@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://alone-wolf.github.io</id>
     <title>WH&apos;s Blog</title>
-    <updated>2021-01-11T04:40:58.311Z</updated>
+    <updated>2021-01-27T12:25:48.866Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://alone-wolf.github.io"/>
     <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://alone-wolf.github.io/images/avatar.png</logo>
     <icon>https://alone-wolf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, WH&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[/etc/fstab 说明]]></title>
+        <id>https://alone-wolf.github.io/post/FVEPOhPxX/</id>
+        <link href="https://alone-wolf.github.io/post/FVEPOhPxX/">
+        </link>
+        <updated>2021-01-27T12:17:04.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[开启Travelling]]></title>
         <id>https://alone-wolf.github.io/post/travelling/</id>
@@ -72,12 +79,5 @@
         <link href="https://alone-wolf.github.io/post/python3-wen-jian-cao-zuo/">
         </link>
         <updated>2020-03-26T13:39:13.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Android Activity]]></title>
-        <id>https://alone-wolf.github.io/post/android-activity/</id>
-        <link href="https://alone-wolf.github.io/post/android-activity/">
-        </link>
-        <updated>2020-03-26T13:35:51.000Z</updated>
     </entry>
 </feed>
