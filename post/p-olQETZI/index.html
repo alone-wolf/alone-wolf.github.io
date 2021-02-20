@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>python3 lambda | WH&#39;s Blog</title>
+<title>Ubuntu 增加swap | WH&#39;s Blog</title>
 <link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1613816961992">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="python3 lambda | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Ubuntu 增加swap | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -20,12 +20,12 @@
 </script>
 
 
-    <meta name="description" content="a = lambda x:x**2
-
-lambda used to create a function easily with one line,
-print(a) we will get a function fd
-&lt;functio..." />
-    <meta name="keywords" content="Python3" />
+    <meta name="description" content="创建swap文件
+sudo dd if=/dev/zero of=swapfile6 bs=1024 count=6000000
+sudo mkswap -f swapfile6
+启用swap文件
+sudo swapon swapfile6..." />
+    <meta name="keywords" content="Ubuntu,Shell,Linux" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -103,61 +103,57 @@ print(a) we will get a function fd
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              python3 lambda
+              Ubuntu 增加swap
             </h2>
             <div class="post-info">
               <span>
-                2020-03-26
+                2021-01-27
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://alone-wolf.github.io/tag/oD2ZzofKq/" class="post-tag">
-                  # Python3
+                <a href="https://alone-wolf.github.io/tag/dj9QeG6Fr/" class="post-tag">
+                  # Ubuntu
+                </a>
+              
+                <a href="https://alone-wolf.github.io/tag/sloFTSLffv/" class="post-tag">
+                  # Shell
+                </a>
+              
+                <a href="https://alone-wolf.github.io/tag/SRJbH_usc/" class="post-tag">
+                  # Linux
                 </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <pre><code>a = lambda x:x**2
-
-lambda used to create a function easily with one line,
-print(a) we will get a function fd
-&lt;function &lt;lambda&gt; at somewhere&gt;
-
-def a(x,y):
-    return x**y
-
-||
-
-a = lambda x,y:x**y
-</code></pre>
-<hr>
-<pre><code>x = ['a', 'b', 'c', 'd']
-y = [1, 2, 3, 4]
-a = lambda x,y:{x[i]:y[i] for i in range(len(x))}
-
-||
-
-def a(x,y):
-    return {x[i]:y[i] for i in range(len(x))}
-
-||
-
-def a(x,y):
-    newdict = {}
-    for i in range(len(x)):
-        newdict[x[i]]=y[i]
-    return newdict
-</code></pre>
-<hr>
-<p>​</p>
+                <h2 id="创建swap文件">创建swap文件</h2>
+<p><code>sudo dd if=/dev/zero of=swapfile6 bs=1024 count=6000000</code><br>
+<code>sudo mkswap -f swapfile6</code></p>
+<h2 id="启用swap文件">启用swap文件</h2>
+<p><code>sudo swapon swapfile6</code><br>
+使用<code>free -m</code>查看内存</p>
+<h2 id="停用swap文件">停用swap文件</h2>
+<p><code>sudo swapoff swapfile6</code></p>
+<h2 id="自动挂载swap文件">自动挂载swap文件</h2>
+<p>将如下内容添加到 /etc/fstab 文件中<br>
+<code>/swapfile6 /swap swap defaults 0 0</code></p>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BAswap%E6%96%87%E4%BB%B6">创建swap文件</a></li>
+<li><a href="#%E5%90%AF%E7%94%A8swap%E6%96%87%E4%BB%B6">启用swap文件</a></li>
+<li><a href="#%E5%81%9C%E7%94%A8swap%E6%96%87%E4%BB%B6">停用swap文件</a></li>
+<li><a href="#%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BDswap%E6%96%87%E4%BB%B6">自动挂载swap文件</a></li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
@@ -166,9 +162,9 @@ def a(x,y):
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://alone-wolf.github.io/post/python3-xiu-shi/">
+            <a href="https://alone-wolf.github.io/post/travelling/">
               <h3 class="post-title">
-                python3 修饰
+                开启Travelling
               </h3>
             </a>
           </div>
