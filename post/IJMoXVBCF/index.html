@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>python3 修饰 | WH&#39;s Blog</title>
+<title>Jupyter | WH&#39;s Blog</title>
 <link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1613817201425">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="python3 修饰 | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Jupyter | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -20,17 +20,8 @@
 </script>
 
 
-    <meta name="description" content="说明
-修饰符@的作用是为了现有的函数增加额外的功能
-常用于插入日志 性能测试 事务处理等
-
-创建函数修饰符的规则：
-    修饰符是一个函数
-    修饰取被修饰函数为参数
-    修饰符返回一个新函数
-    修饰符维护被维护函数的签名
-..." />
-    <meta name="keywords" content="Python3" />
+    <meta name="description" content="Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across do..." />
+    <meta name="keywords" content="Documetation,Python3" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -108,15 +99,19 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              python3 修饰
+              Jupyter
             </h2>
             <div class="post-info">
               <span>
-                2020-03-26
+                2021-02-20
               </span>
               <span>
-                3 min read
+                2 min read
               </span>
+              
+                <a href="https://alone-wolf.github.io/tag/Kj7_GEyVa/" class="post-tag">
+                  # Documetation
+                </a>
               
                 <a href="https://alone-wolf.github.io/tag/oD2ZzofKq/" class="post-tag">
                   # Python3
@@ -126,171 +121,48 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="说明">说明</h3>
-<pre><code>修饰符@的作用是为了现有的函数增加额外的功能
-常用于插入日志 性能测试 事务处理等
-
-创建函数修饰符的规则：
-    修饰符是一个函数
-    修饰取被修饰函数为参数
-    修饰符返回一个新函数
-    修饰符维护被维护函数的签名
-</code></pre>
-<h3 id="被修饰函数不带参数">被修饰函数不带参数</h3>
-<pre><code>def log(func):
-    def warpper():
-        print('log start')
-        func()
-        print('log stop)
-    return wapper
-</code></pre>
-<p>​</p>
-<pre><code>@log
-def test():
-    print('test')
-
-test()
-
-运行结果:
-log start
-test
-log stop
-</code></pre>
-<h3 id="使用functools模块提供的修改函数属性的方法wraps">使用functools模块提供的修改函数属性的方法wraps</h3>
-<pre><code>def log(func):
-    def wrapper():
-        print('log start)
-        func()
-        print('log stop)
-    return wrapper
-
-@log
-def test1():
-    print('test1')
-
-def test2():
-    print('test2')
-
-print(test1.__name__)
-print(test2.__name__)
-
-运行结果：
-wrapper
-test2
-
-上述方法会改变函数的函数名称，可以使用functools模块提供的修改函数属性的方法wraps
-
-from functools import wraps
-
-def log(func):
-    @wraps(func)
-    def wrapper():
-        print('log start')
-        func()
-        print('log stop')
-    return wrapper
-
-@log
-def test1():
-    print('test1')
-
-def test2():
-    print('test2')
-
-print(test1.__name__)
-print(test2.__name__)
-
-运行结果：
-test1
-test2
-</code></pre>
-<h3 id="被修饰函数待参数">被修饰函数待参数</h3>
-<pre><code>from functools import wraps
-
-def log(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        print('log start',func.__name__)
-        ret = func(*args, **kwargs)
-        print('log stop')
-        return ret
-    return wrapper
-
-@log
-def test1(s):
-    print('test1',s)
-    return s
-</code></pre>
-<p>​</p>
-<pre><code>@log
-def test2(s1,s1):
-    print('test2',s1,s2)
-    return s1+s2
-
-test1('a')
-test2('b','cd')
-
-运行结果:
-log start test1
-test1 a
-log stop
-log start test2
-test2 b cd
-log stop
-</code></pre>
-<h3 id="修饰符带参数-需要多一层包装">修饰符带参数 需要多一层包装</h3>
-<pre><code>from functools import wraps
-
-def log(arg):
-    def _log(func):
-        @wraps(func)
-        def wrapper(*args,**kwargs):                    
-        print('log start',func.__name__,arg)
-            ret = func(*args,**kwargs)
-            print('log stop')
-            return ret
-        return wrapper
-    return _log
-
-@log('m1')
-def test1(s):
-    print('test1',s)
-    return s
-
-@log('m2')
-def test2(s,d):
-    print('test2',s,d)
-    return s+d
-
-test1('a')
-test2('b','c')
-
-运行结果：
-log start test1 m1
-test1 a
-log stop
-log start test2 m2
-test2 b c
-log stop
-</code></pre>
-<h2 id="end">END</h2>
-<p>​</p>
+                <p>Project Jupyter exists to develop open-source software, open-standards, and services for interactive computing across dozens of programming languages.</p>
+<h2 id="jupyterlab">JupyterLab</h2>
+<p>JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: write plugins that add new components and integrate with existing ones.</p>
+<h3 id="install">Install</h3>
+<p>conda <code>conda install -c conda-forge jupyterlab</code><br>
+pip <code>pip install jupyterlab</code></p>
+<h3 id="run">Run</h3>
+<p><code>jupyter-lab</code></p>
+<h2 id="jupyter-notebook-classic">Jupyter Notebook (Classic)</h2>
+<p>The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.</p>
+<h3 id="install-2">Install</h3>
+<p>conda <code>conda install -c conda-forge notebook</code><br>
+pip <code>pip install notebook</code></p>
+<h3 id="run-2">Run</h3>
+<p><code>jupyter notebook</code></p>
+<h2 id="voilà">Voilà ???</h2>
+<h3 id="install-3">Install</h3>
+<p>conda <code>conda install -c conda-forga voila</code><br>
+pip <code>pip install voila</code></p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#jupyterlab">JupyterLab</a>
 <ul>
-<li><a href="#%E8%AF%B4%E6%98%8E">说明</a></li>
-<li><a href="#%E8%A2%AB%E4%BF%AE%E9%A5%B0%E5%87%BD%E6%95%B0%E4%B8%8D%E5%B8%A6%E5%8F%82%E6%95%B0">被修饰函数不带参数</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8functools%E6%A8%A1%E5%9D%97%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BF%AE%E6%94%B9%E5%87%BD%E6%95%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E6%96%B9%E6%B3%95wraps">使用functools模块提供的修改函数属性的方法wraps</a></li>
-<li><a href="#%E8%A2%AB%E4%BF%AE%E9%A5%B0%E5%87%BD%E6%95%B0%E5%BE%85%E5%8F%82%E6%95%B0">被修饰函数待参数</a></li>
-<li><a href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%B8%A6%E5%8F%82%E6%95%B0-%E9%9C%80%E8%A6%81%E5%A4%9A%E4%B8%80%E5%B1%82%E5%8C%85%E8%A3%85">修饰符带参数 需要多一层包装</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#run">Run</a></li>
 </ul>
 </li>
-<li><a href="#end">END</a></li>
+<li><a href="#jupyter-notebook-classic">Jupyter Notebook (Classic)</a>
+<ul>
+<li><a href="#install-2">Install</a></li>
+<li><a href="#run-2">Run</a></li>
+</ul>
+</li>
+<li><a href="#voil%C3%A0">Voilà ???</a>
+<ul>
+<li><a href="#install-3">Install</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -303,9 +175,9 @@ log stop
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://alone-wolf.github.io/post/python3-wen-jian-cao-zuo/">
+            <a href="https://alone-wolf.github.io/post/692G0H_XK/">
               <h3 class="post-title">
-                python3 文件操作
+                Matplotlib
               </h3>
             </a>
           </div>

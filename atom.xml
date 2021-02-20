@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://alone-wolf.github.io</id>
     <title>WH&apos;s Blog</title>
-    <updated>2021-02-20T10:29:25.185Z</updated>
+    <updated>2021-02-20T10:33:27.104Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://alone-wolf.github.io"/>
     <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://alone-wolf.github.io/images/avatar.png</logo>
     <icon>https://alone-wolf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, WH&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Jupyter]]></title>
+        <id>https://alone-wolf.github.io/post/IJMoXVBCF/</id>
+        <link href="https://alone-wolf.github.io/post/IJMoXVBCF/">
+        </link>
+        <updated>2021-02-20T10:31:33.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Matplotlib]]></title>
         <id>https://alone-wolf.github.io/post/692G0H_XK/</id>
@@ -72,12 +79,5 @@
         <link href="https://alone-wolf.github.io/post/python3-tui-dao-shi/">
         </link>
         <updated>2020-03-26T13:41:51.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python3 lambda]]></title>
-        <id>https://alone-wolf.github.io/post/python3-lambda/</id>
-        <link href="https://alone-wolf.github.io/post/python3-lambda/">
-        </link>
-        <updated>2020-03-26T13:40:58.000Z</updated>
     </entry>
 </feed>
