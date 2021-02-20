@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git 基础配置 | WH&#39;s Blog</title>
-<link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1611750344530">
+<link rel="shortcut icon" href="https://alone-wolf.github.io/favicon.ico?v=1613816908113">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://alone-wolf.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="Git 基础配置 | WH&#39;s Blog - Atom Feed" href="https://alone-wolf.github.io/atom.xml">
@@ -32,7 +32,7 @@ git config --global https.proxy socks5://127.0.0...." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://alone-wolf.github.io">
-  <img class="avatar" src="https://alone-wolf.github.io/images/avatar.png?v=1611750344530" alt="">
+  <img class="avatar" src="https://alone-wolf.github.io/images/avatar.png?v=1613816908113" alt="">
   </a>
   <h1 class="site-title">
     WH&#39;s Blog
@@ -124,15 +124,18 @@ git config --global https.proxy socks5://127.0.0...." />
             <div class="post-content-wrapper">
               <div class="post-content">
                 <h3 id="setunset-proxy">set/unset proxy</h3>
-<p>git config --global http.proxy socks5://127.0.0.1:1080<br>
-git config --global https.proxy socks5://127.0.0.1:1080<br>
-git config --global --unset http.proxy<br>
-git config --global --unset https.proxy</p>
+<p><code>git config --global http.proxy socks5://127.0.0.1:1080</code><br>
+<code>git config --global https.proxy socks5://127.0.0.1:1080</code><br>
+<code>git config --global ssh.proxy url</code><br>
+<code>git config --global --unset http.proxy</code><br>
+<code>git config --global --unset https.proxy</code><br>
+<code>git config --global --unset ssh.proxy</code><br>
+<code>git config --global -e</code> 打开文本编辑器编辑配置文件</p>
 <h3 id="set-usernameemail">set username/email</h3>
-<p>git config --global user.name name<br>
-git config --global user.email 123@qq.com</p>
-<p>git config user.name<br>
-git config user.email</p>
+<p><code>git config --global user.name name</code><br>
+<code>git config --global user.email 123@server.com</code></p>
+<p><code>git config user.name</code><br>
+<code>git config user.email</code></p>
 
               </div>
               <div class="toc-container">
