@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://alone-wolf.github.io</id>
+    <id>https://blog.aewf.xyz</id>
     <title>WH&apos;s Blog</title>
-    <updated>2021-02-22T16:41:37.666Z</updated>
+    <updated>2021-02-23T15:55:02.806Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://alone-wolf.github.io"/>
-    <link rel="self" href="https://alone-wolf.github.io/atom.xml"/>
+    <link rel="alternate" href="https://blog.aewf.xyz"/>
+    <link rel="self" href="https://blog.aewf.xyz/atom.xml"/>
     <subtitle>it&apos;s just a blog</subtitle>
-    <logo>https://alone-wolf.github.io/images/avatar.png</logo>
-    <icon>https://alone-wolf.github.io/favicon.ico</icon>
+    <logo>https://blog.aewf.xyz/images/avatar.png</logo>
+    <icon>https://blog.aewf.xyz/favicon.ico</icon>
     <rights>All rights reserved 2021, WH&apos;s Blog</rights>
     <entry>
         <title type="html"><![CDATA[Jupyter]]></title>
-        <id>https://alone-wolf.github.io/post/IJMoXVBCF/</id>
-        <link href="https://alone-wolf.github.io/post/IJMoXVBCF/">
+        <id>https://blog.aewf.xyz/post/IJMoXVBCF/</id>
+        <link href="https://blog.aewf.xyz/post/IJMoXVBCF/">
         </link>
         <updated>2021-02-20T10:31:33.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Matplotlib]]></title>
-        <id>https://alone-wolf.github.io/post/692G0H_XK/</id>
-        <link href="https://alone-wolf.github.io/post/692G0H_XK/">
+        <id>https://blog.aewf.xyz/post/692G0H_XK/</id>
+        <link href="https://blog.aewf.xyz/post/692G0H_XK/">
         </link>
         <updated>2021-02-20T10:25:59.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[/etc/fstab 说明]]></title>
-        <id>https://alone-wolf.github.io/post/FVEPOhPxX/</id>
-        <link href="https://alone-wolf.github.io/post/FVEPOhPxX/">
+        <id>https://blog.aewf.xyz/post/FVEPOhPxX/</id>
+        <link href="https://blog.aewf.xyz/post/FVEPOhPxX/">
         </link>
         <updated>2021-01-27T12:17:04.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Ubuntu 增加swap]]></title>
-        <id>https://alone-wolf.github.io/post/p-olQETZI/</id>
-        <link href="https://alone-wolf.github.io/post/p-olQETZI/">
+        <id>https://blog.aewf.xyz/post/p-olQETZI/</id>
+        <link href="https://blog.aewf.xyz/post/p-olQETZI/">
         </link>
         <updated>2021-01-27T12:01:20.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[开启Travelling]]></title>
-        <id>https://alone-wolf.github.io/post/travelling/</id>
-        <link href="https://alone-wolf.github.io/post/travelling/">
+        <id>https://blog.aewf.xyz/post/travelling/</id>
+        <link href="https://blog.aewf.xyz/post/travelling/">
         </link>
         <updated>2020-04-14T04:29:43.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[逆向工程成果记录]]></title>
-        <id>https://alone-wolf.github.io/post/w1iPPGjj3/</id>
-        <link href="https://alone-wolf.github.io/post/w1iPPGjj3/">
+        <id>https://blog.aewf.xyz/post/w1iPPGjj3/</id>
+        <link href="https://blog.aewf.xyz/post/w1iPPGjj3/">
         </link>
         <updated>2020-04-12T04:03:33.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Feed 分类]]></title>
-        <id>https://alone-wolf.github.io/post/-m7gPmuDB/</id>
-        <link href="https://alone-wolf.github.io/post/-m7gPmuDB/">
+        <id>https://blog.aewf.xyz/post/-m7gPmuDB/</id>
+        <link href="https://blog.aewf.xyz/post/-m7gPmuDB/">
         </link>
         <updated>2020-04-04T13:24:01.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Android 分享的发起和接收]]></title>
-        <id>https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/</id>
-        <link href="https://alone-wolf.github.io/post/fen-xiang-de-fa-qi-he-jie-shou/">
+        <id>https://blog.aewf.xyz/post/fen-xiang-de-fa-qi-he-jie-shou/</id>
+        <link href="https://blog.aewf.xyz/post/fen-xiang-de-fa-qi-he-jie-shou/">
         </link>
         <updated>2020-03-26T13:43:20.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[python3 推导式]]></title>
-        <id>https://alone-wolf.github.io/post/python3-tui-dao-shi/</id>
-        <link href="https://alone-wolf.github.io/post/python3-tui-dao-shi/">
+        <id>https://blog.aewf.xyz/post/python3-tui-dao-shi/</id>
+        <link href="https://blog.aewf.xyz/post/python3-tui-dao-shi/">
         </link>
         <updated>2020-03-26T13:41:51.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[python3 lambda]]></title>
-        <id>https://alone-wolf.github.io/post/python3-lambda/</id>
-        <link href="https://alone-wolf.github.io/post/python3-lambda/">
+        <id>https://blog.aewf.xyz/post/python3-lambda/</id>
+        <link href="https://blog.aewf.xyz/post/python3-lambda/">
         </link>
         <updated>2020-03-26T13:40:58.000Z</updated>
     </entry>
