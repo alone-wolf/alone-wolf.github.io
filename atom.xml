@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.aewf.xyz</id>
     <title>WH&apos;s Blog</title>
-    <updated>2021-02-23T15:55:02.806Z</updated>
+    <updated>2021-02-23T16:17:36.269Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.aewf.xyz"/>
     <link rel="self" href="https://blog.aewf.xyz/atom.xml"/>
@@ -39,6 +39,13 @@
         <updated>2021-01-27T12:01:20.000Z</updated>
     </entry>
     <entry>
+        <title type="html"><![CDATA[python3 函数]]></title>
+        <id>https://blog.aewf.xyz/post/f0YBSNVvp/</id>
+        <link href="https://blog.aewf.xyz/post/f0YBSNVvp/">
+        </link>
+        <updated>2021-01-11T00:30:32.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[开启Travelling]]></title>
         <id>https://blog.aewf.xyz/post/travelling/</id>
         <link href="https://blog.aewf.xyz/post/travelling/">
@@ -72,12 +79,5 @@
         <link href="https://blog.aewf.xyz/post/python3-tui-dao-shi/">
         </link>
         <updated>2020-03-26T13:41:51.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python3 lambda]]></title>
-        <id>https://blog.aewf.xyz/post/python3-lambda/</id>
-        <link href="https://blog.aewf.xyz/post/python3-lambda/">
-        </link>
-        <updated>2020-03-26T13:40:58.000Z</updated>
     </entry>
 </feed>
