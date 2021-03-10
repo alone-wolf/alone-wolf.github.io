@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.aewf.xyz</id>
     <title>WH&apos;s Blog</title>
-    <updated>2021-02-23T16:17:36.269Z</updated>
+    <updated>2021-03-10T01:50:40.831Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.aewf.xyz"/>
     <link rel="self" href="https://blog.aewf.xyz/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://blog.aewf.xyz/images/avatar.png</logo>
     <icon>https://blog.aewf.xyz/favicon.ico</icon>
     <rights>All rights reserved 2021, WH&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Kubuntu 解决间歇性开机没声音]]></title>
+        <id>https://blog.aewf.xyz/post/qlgNV_lNe/</id>
+        <link href="https://blog.aewf.xyz/post/qlgNV_lNe/">
+        </link>
+        <updated>2021-03-10T01:39:31.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Jupyter]]></title>
         <id>https://blog.aewf.xyz/post/IJMoXVBCF/</id>
@@ -72,12 +79,5 @@
         <link href="https://blog.aewf.xyz/post/fen-xiang-de-fa-qi-he-jie-shou/">
         </link>
         <updated>2020-03-26T13:43:20.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python3 推导式]]></title>
-        <id>https://blog.aewf.xyz/post/python3-tui-dao-shi/</id>
-        <link href="https://blog.aewf.xyz/post/python3-tui-dao-shi/">
-        </link>
-        <updated>2020-03-26T13:41:51.000Z</updated>
     </entry>
 </feed>
