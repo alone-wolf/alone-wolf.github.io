@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.aewf.xyz</id>
     <title>WH&apos;s Blog</title>
-    <updated>2021-03-10T01:55:14.167Z</updated>
+    <updated>2021-03-10T13:10:26.186Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.aewf.xyz"/>
     <link rel="self" href="https://blog.aewf.xyz/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://blog.aewf.xyz/images/avatar.png</logo>
     <icon>https://blog.aewf.xyz/favicon.ico</icon>
     <rights>All rights reserved 2021, WH&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Android 工程开启 mutildex]]></title>
+        <id>https://blog.aewf.xyz/post/4wVIR3oSH/</id>
+        <link href="https://blog.aewf.xyz/post/4wVIR3oSH/">
+        </link>
+        <updated>2021-03-10T12:57:32.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Kubuntu 解决间歇性开机没声音]]></title>
         <id>https://blog.aewf.xyz/post/qlgNV_lNe/</id>
@@ -72,12 +79,5 @@
         <link href="https://blog.aewf.xyz/post/jpVFBN4Z9/">
         </link>
         <updated>2021-01-10T15:47:13.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python3 字符串]]></title>
-        <id>https://blog.aewf.xyz/post/WW9BRce5D/</id>
-        <link href="https://blog.aewf.xyz/post/WW9BRce5D/">
-        </link>
-        <updated>2021-01-10T15:40:38.000Z</updated>
     </entry>
 </feed>

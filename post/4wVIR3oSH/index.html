@@ -2,11 +2,11 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>python3 元组 | WH&#39;s Blog</title>
+<title>Android 工程开启 mutildex | WH&#39;s Blog</title>
 <link rel="shortcut icon" href="https://blog.aewf.xyz/favicon.ico?v=1615381823926">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.aewf.xyz/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="python3 元组 | WH&#39;s Blog - Atom Feed" href="https://blog.aewf.xyz/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Android 工程开启 mutildex | WH&#39;s Blog - Atom Feed" href="https://blog.aewf.xyz/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
@@ -20,11 +20,16 @@
 </script>
 
 
-    <meta name="description" content="元组内置方法
-t.count('python') 是记录在元组 t 中该元素出现几次
-t.index(123) 是找到该元素在元组 t 的索引
-..." />
-    <meta name="keywords" content="Python3" />
+    <meta name="description" content="前提
+单 dex 限制方法数小于 64k
+当且仅当 SDK 小于 21 时需要手动配置 multidex，高版本的 SDK 会自动识别并拆分
+步骤
+
+添加依赖
+
+// Androidx
+def multidex_version = &quo..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -106,40 +111,61 @@ t.index(123) 是找到该元素在元组 t 的索引
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              python3 元组
+              Android 工程开启 mutildex
             </h2>
             <div class="post-info">
               <span>
-                2021-01-10
+                2021-03-10
               </span>
               <span>
                 1 min read
               </span>
               
-                <a href="https://blog.aewf.xyz/tag/oD2ZzofKq/" class="post-tag">
-                  # Python3
-                </a>
-              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h3 id="元组内置方法">元组内置方法</h3>
-<p><code>t.count('python')</code> 是记录在元组 t 中该元素出现几次</p>
-<p><code>t.index(123)</code> 是找到该元素在元组 t 的索引</p>
+                <h1 id="前提">前提</h1>
+<p>单 dex 限制方法数小于 64k<br>
+当且仅当 SDK 小于 21 时需要手动配置 multidex，高版本的 SDK 会自动识别并拆分</p>
+<h1 id="步骤">步骤</h1>
+<ol>
+<li>添加依赖</li>
+</ol>
+<pre><code>// Androidx
+def multidex_version = &quot;2.0.1&quot;
+implementation &quot;androidx.multidex:multidex:$multidex_version&quot;
+</code></pre>
+<pre><code>// not Androidx
+implementation 'com.android.support:multidex:1.0.3'
+</code></pre>
+<ol start="2">
+<li>替换 application.name<br>
+在 manifests 文件中设置此值（Androidx）<br>
+<code>&quot;androidx.multidex.MultiDexApplication&quot;</code><br>
+或者，替换掉 application 的项目</li>
+</ol>
+<pre><code>public class MyApplication extends MultiDexApplication {}
+</code></pre>
+<p>再或者，无法替换基类</p>
+<pre><code>public class MyApplication extends SomeOtherApplication {
+  @Override
+  protected void attachBaseContext(Context base) {
+     super.attachBaseContext(base);
+     MultiDex.install(this);
+  }
+}
+</code></pre>
+<h1 id="更多">更多</h1>
+<p>见 Android 官方文档<br>
+https://developer.android.com/studio/build/multidex</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E5%85%83%E7%BB%84%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95">元组内置方法</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E5%89%8D%E6%8F%90">前提</a></li>
+<li><a href="#%E6%AD%A5%E9%AA%A4">步骤</a></li>
+<li><a href="#%E6%9B%B4%E5%A4%9A">更多</a></li>
 </ul>
 
               </div>
@@ -150,9 +176,9 @@ t.index(123) 是找到该元素在元组 t 的索引
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.aewf.xyz/post/mfLm2k6NB/">
+            <a href="https://blog.aewf.xyz/post/qlgNV_lNe/">
               <h3 class="post-title">
-                python3 列表
+                Kubuntu 解决间歇性开机没声音
               </h3>
             </a>
           </div>
