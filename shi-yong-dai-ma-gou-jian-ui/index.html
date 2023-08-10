@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Android 使用代码构建UI | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Android 使用代码构建UI | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="0x00
+据纯纯写作的作者 xxx 说，使用java/kotlin绘制的ui界面的构建速度要优于xml绘制的layout，因此我开始了初学者的探索
+0x01 Activity
+众所周知，Activity在onCreate回调方法中通过set..." />
+    <meta name="keywords" content="Android dev" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Android 使用代码构建UI
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-26
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/jVpW7IEQF/" class="post-tag">
+                  # Android dev
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="0x00">0x00</h3>
+<p>据纯纯写作的作者 xxx 说，使用java/kotlin绘制的ui界面的构建速度要优于xml绘制的layout，因此我开始了初学者的探索</p>
+<h3 id="0x01-activity">0x01 Activity</h3>
+<p>众所周知，Activity在onCreate回调方法中通过setContent()方法来设置界面</p>
+<p>这个方法的参数既可以是int类型的R.layout.main_activity这种格式</p>
+<p>还可以是实例化的xxlayout对象</p>
+<p>使用方法类似于用js操作dom创建web页面元素</p>
+<p>先实例化layout比如</p>
+<pre><code>LinearLayout l = new LinearLayout(context);
+Button btn = new Button(context);
+</code></pre>
+<p>然后向linearlayout中添加对象，也就各种view</p>
+<p><code>l.addView(btn);</code></p>
+<p>最后设置content</p>
+<h3 id="0x02-fragment">0x02 Fragment</h3>
+<p>在onCeateView回调方法中按照上述的方法创建各种实例对象</p>
+<p>将各种view添加到layout后，直接return该layout</p>
+<h3 id="0x04-textview-button-等设置属性">0x04 TextView Button 等设置属性</h3>
+<p>java</p>
+<pre><code class="language-java">Button btn = new Button(context);
+btn.setText(&quot;this is a btn&quot;);
+btn.setTextSize(20); //float
+btn.setPadding(15,15,15,15); // left top right bottom
+btn.setOnClickListener(new View.OnClickListener(){
+  @Override
+  public void onClick(View v){
+    // thhings
+  }
+});
+</code></pre>
+<p>to be contioue</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#0x00">0x00</a></li>
+<li><a href="#0x01-activity">0x01 Activity</a></li>
+<li><a href="#0x02-fragment">0x02 Fragment</a></li>
+<li><a href="#0x04-textview-button-%E7%AD%89%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7">0x04 TextView Button 等设置属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

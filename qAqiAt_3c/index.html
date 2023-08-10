@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PVE host use dhcp | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="PVE host use dhcp | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="编辑文件
+/etc/network/interfaces
+auto lo
+iface lo inet loopback
+
+iface ens33 inet manual
+
+auto vmbr0
+iface vmbr0 inet dhcp
+ ..." />
+    <meta name="keywords" content="Network,PVE,Linux" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              PVE host use dhcp
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-10-30
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/TFWnl6b0G/" class="post-tag">
+                  # Network
+                </a>
+              
+                <a href="https://blog.writerpass.top/e2b-jXSLgY/" class="post-tag">
+                  # PVE
+                </a>
+              
+                <a href="https://blog.writerpass.top/SRJbH_usc/" class="post-tag">
+                  # Linux
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="编辑文件">编辑文件</h1>
+<p>/etc/network/interfaces</p>
+<pre><code class="language-shell">auto lo
+iface lo inet loopback
+
+iface ens33 inet manual
+
+auto vmbr0
+iface vmbr0 inet dhcp
+    bridge_ports ens33
+    bridge_stp off
+    bridge_fd 0
+</code></pre>
+<p>其中 ens33 可能是其他名称 为物理端口名</p>
+<h1 id="应用更改">应用更改</h1>
+<pre><code class="language-shell">reboot
+or
+ifdown vmbr0 &amp;&amp; ifup vmbr0
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E7%BC%96%E8%BE%91%E6%96%87%E4%BB%B6">编辑文件</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E6%9B%B4%E6%94%B9">应用更改</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/8nmNJWXts/">
+              <h3 class="post-title">
+                Android Retrofit
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

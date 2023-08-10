@@ -1,0 +1,307 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Android Compose Navigation | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Android Compose Navigation | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="引入依赖
+dependencies {
+    implementation &quot;androidx.navigation:navigation-compose:2.4.0-alpha10&quot;
+}
+
+开始
+val navCon..." />
+    <meta name="keywords" content="AndroidCompose,Android dev" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Android Compose Navigation
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-10-31
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/Kjd0h_qCo/" class="post-tag">
+                  # AndroidCompose
+                </a>
+              
+                <a href="https://blog.writerpass.top/jVpW7IEQF/" class="post-tag">
+                  # Android dev
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="引入依赖">引入依赖</h1>
+<pre><code class="language-groovy">dependencies {
+    implementation &quot;androidx.navigation:navigation-compose:2.4.0-alpha10&quot;
+}
+</code></pre>
+<h1 id="开始">开始</h1>
+<pre><code class="language-kotlin">val navController = rememberNavController()
+</code></pre>
+<h1 id="创建-navhost">创建 NavHost</h1>
+<pre><code class="language-kotlin">NavHost(navController = navController,startDestination = &quot;societies&quot;){
+    composable(&quot;societies&quot;){SocletyListDES()}
+    composable(&quot;bbs&quot;){BBSListDES()}
+    composable(&quot;mine&quot;){MineDES()}
+}
+//startDestination 不可用 可组合项
+</code></pre>
+<h1 id="导航到可组合项">导航到可组合项</h1>
+<pre><code>@Composable
+fun SocietyListDES(navCrontroller: NavController){
+    Button(onclick={ navController.navigate(&quot;society-detail&quot;) }){
+        Text(text=&quot;society-detail&quot;)
+    }
+}
+</code></pre>
+<p>一般情况下，navigate方法会将新的目的地加入返回栈，而如果需要自定义其行为</p>
+<pre><code class="language-kotlin">// 放弃之前所有返回栈，退回到societies，即最开始的一层
+navController.navigate(&quot;society-detail&quot;){
+    popUpTo(&quot;societies&quot;)
+}
+
+// Pop everything up to and including the &quot;home&quot; destination off
+// the back stack before navigating to the &quot;friends&quot; destination
+navController.navigate(&quot;friends&quot;) {
+    popUpTo(&quot;home&quot;) { inclusive = true }
+}
+
+// Navigate to the &quot;search” destination only if we’re not already on
+// the &quot;search&quot; destination, avoiding multiple copies on the top of the
+// back stack
+navController.navigate(&quot;search&quot;) {
+    launchSingleTop = true
+}
+</code></pre>
+<h1 id="使用参数进行导航">使用参数进行导航</h1>
+<p>类似于http请求过程中使用的路由</p>
+<pre><code class="language-kotlin">NavHost(startDestination = &quot;profile/{userId}&quot;){
+    ...
+    composable(&quot;profile/{userId}&quot;){...}
+}
+</code></pre>
+<pre><code class="language-kotlin">// 默认情况下 所有参数都会被解析成字符串，也可使用 ` arguments ` 参数来设置 ` type `
+NavHost(startDestination=&quot;profile/{userId}&quot;){
+    ...
+    composable(
+        &quot;profile/{userId}&quot;,
+        arguments= listOf(navArgument(&quot;userId&quot;) { type = NavType.StringType }
+        ) {...}
+}
+</code></pre>
+<pre><code class="language-kotlin">// 提取参数
+composable(&quot;profile/{userId}&quot;) { backStackEntry -&gt;
+    Profile(navController, backStackEntry.arguments?.getString(&quot;userId&quot;))
+}
+</code></pre>
+<pre><code class="language-kotlin">// 然后如何 perform nav action
+navController.navigate(&quot;profile/user1234&quot;)
+</code></pre>
+<h1 id="添加可选参数">添加可选参数</h1>
+<p>可选参数与必需参数有两点不同</p>
+<ul>
+<li>可选参数必须使用查询参数语法  <code>&quot;?argName={argName}&quot;</code> 来添加</li>
+<li>可选参数必须具有 <code>defaultValue</code> 集 或 <code>nullability = true</code> (也就将默认值隐式设为<code>null</code>)<br>
+因此 所有可选参数都必须以列表的形式显示添加到 <code>composable()</code></li>
+</ul>
+<pre><code class="language-kotlin">composable(&quot;profile?userId={userId}&quot;,
+    arguments = listOf(navArgument(&quot;userId&quot;) { defaultValue = &quot;me&quot; })
+) { backStackEntry -&gt;
+    Profile(navController, backStackEntry.arguments?.getString(&quot;userId&quot;))
+}
+</code></pre>
+<p>通过路线处理参数的结构意味着可组合项将完全独立于Navigation，并更易于测试</p>
+<h1 id="深层链接">深层链接</h1>
+<p>Navigation Compose 支持隐式深层链接，此类链接也可定义为 <code>compose()</code> 函数的一部分。<br>
+使用 <code>navDeepLink()</code> 以列表的形式添加深层链接</p>
+<pre><code class="language-kotlin">val uri = &quot;https://example.com&quot;
+
+compoable(&quot;profile?id={id}&quot;,
+    deepLinks = listOf(navDeepLink {uriPattern = &quot;$uri/{id}&quot;})
+){ backStackEntry -&gt;
+    Profile(navController, backStackEntry.arguments?.getString(&quot;id&quot;))
+}
+</code></pre>
+<p><a href="https://developer.android.com/jetpack/compose/navigation#deeplinks">深层链接的更多信息</a></p>
+<p><a href="https://developer.android.com/jetpack/compose/navigation">更多内容</a></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96">引入依赖</a></li>
+<li><a href="#%E5%BC%80%E5%A7%8B">开始</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA-navhost">创建 NavHost</a></li>
+<li><a href="#%E5%AF%BC%E8%88%AA%E5%88%B0%E5%8F%AF%E7%BB%84%E5%90%88%E9%A1%B9">导航到可组合项</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%AF%BC%E8%88%AA">使用参数进行导航</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%8F%AF%E9%80%89%E5%8F%82%E6%95%B0">添加可选参数</a></li>
+<li><a href="#%E6%B7%B1%E5%B1%82%E9%93%BE%E6%8E%A5">深层链接</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/qAqiAt_3c/">
+              <h3 class="post-title">
+                PVE host use dhcp
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

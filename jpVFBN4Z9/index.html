@@ -1,0 +1,250 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>python3 字典 | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="python3 字典 | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="1. 可变类型与不可变类型
+
+序列是以连续的整数为索引，与此不同的是，字典以&quot;关键字&quot;为索引，关键字可以是任意不可变类型，通常用字符串或数值。
+字典是 Python 唯一的一个 映射类型，字符串、元组、列表属于序列类型。..." />
+    <meta name="keywords" content="Python3" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              python3 字典
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-01-10
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/oD2ZzofKq/" class="post-tag">
+                  # Python3
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="1-可变类型与不可变类型">1. 可变类型与不可变类型</h3>
+<ul>
+<li>序列是以连续的整数为索引，与此不同的是，字典以&quot;关键字&quot;为索引，关键字可以是任意不可变类型，通常用字符串或数值。</li>
+<li>字典是 Python 唯一的一个 <u>映射类型</u>，字符串、元组、列表属于<u>序列类型</u>。</li>
+</ul>
+<p>那么如何快速判断一个数据类型 <code>X</code> 是不是可变类型的呢？两种方法：</p>
+<ul>
+<li>麻烦方法：用 <code>id(X)</code> 函数，对 X 进行某种操作，比较操作前后的 <code>id</code>，如果不一样，则 <code>X</code> 不可变，如果一样，则 <code>X</code> 可变。</li>
+<li>便捷方法：用 <code>hash(X)</code>，只要不报错，证明 <code>X</code> 可被哈希，即不可变，反过来不可被哈希，即可变。</li>
+</ul>
+<h3 id="2-字典的定义">2. 字典的定义</h3>
+<p>字典 是无序的 键:值（<code>key:value</code>）对集合，键必须是互不相同的（在同一个字典之内）。</p>
+<ul>
+<li><code>dict</code> 内部存放的顺序和 <code>key</code> 放入的顺序是没有关系的。</li>
+<li><code>dict</code> 查找和插入的速度极快，不会随着 <code>key</code> 的增加而增加，但是需要占用大量的内存。</li>
+</ul>
+<p>字典 定义语法为 <code>{元素1, 元素2, ..., 元素n}</code></p>
+<ul>
+<li>其中每一个元素是一个「键值对」-- 键:值 (<code>key:value</code>)</li>
+<li>关键点是「大括号 {}」,「逗号 ,」和「冒号 :」</li>
+<li>大括号 -- 把所有元素绑在一起</li>
+<li>逗号 -- 将每个键值对分开</li>
+<li>冒号 -- 将键和值分开</li>
+</ul>
+<h3 id="3字典内置方法">3.字典内置方法</h3>
+<ul>
+<li><code>dict.fromkeys(seq[, value])</code> 用于创建一个新字典，以序列 <code>seq</code> 中元素做字典的键，<code>value</code> 为字典所有键对应的初始值。</li>
+<li><code>dict.keys()</code>返回一个可迭代对象，可以使用 <code>list()</code> 来转换为列表，列表为字典中的所有键。</li>
+<li><code>dict.values()</code>返回一个迭代器，可以使用 <code>list()</code> 来转换为列表，列表为字典中的所有值。</li>
+<li><code>dict.items()</code>以列表返回可遍历的 (键, 值) 元组数组。</li>
+<li><code>dict.get(key, default=None)</code> 返回指定键的值，如果值不在字典中返回默认值。</li>
+<li><code>dict.setdefault(key, default=None)</code>和<code>get()</code>方法 类似, 如果键不存在于字典中，将会添加键并将值设为默认值。</li>
+<li><code>key in dict</code> <code>in</code> 操作符用于判断键是否存在于字典中，如果键在字典 dict 里返回<code>true</code>，否则返回<code>false</code>。而<code>not in</code>操作符刚好相反，如果键在字典 dict 里返回<code>false</code>，否则返回<code>true</code>。</li>
+<li><code>dict.pop(key[,default])</code>删除字典给定键 <code>key</code> 所对应的值，返回值为被删除的值。<code>key</code> 值必须给出。若<code>key</code>不存在，则返回 <code>default</code> 值。</li>
+<li><code>del dict[key]</code> 删除字典给定键 <code>key</code> 所对应的值。</li>
+<li><code>dict.popitem()</code>随机返回并删除字典中的一对键和值，如果字典已经为空，却调用了此方法，就报出KeyError异常。</li>
+<li><code>dict.clear()</code>用于删除字典内所有元素。</li>
+<li><code>dict.copy()</code>返回一个字典的浅复制。</li>
+<li><code>dict.update(dict2)</code>把字典参数 <code>dict2</code> 的 <code>key:value</code>对 更新到字典 <code>dict</code> 里。</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B%E4%B8%8E%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%B1%BB%E5%9E%8B">1. 可变类型与不可变类型</a></li>
+<li><a href="#2-%E5%AD%97%E5%85%B8%E7%9A%84%E5%AE%9A%E4%B9%89">2. 字典的定义</a></li>
+<li><a href="#3%E5%AD%97%E5%85%B8%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95">3.字典内置方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/WW9BRce5D/">
+              <h3 class="post-title">
+                python3 字符串
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

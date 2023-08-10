@@ -1,0 +1,337 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>nmap usage 简陋翻译版 | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="nmap usage 简陋翻译版 | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="namp[&lt;扫描类型&gt;... ][&lt;选项&gt;]{&lt;扫描目标说明&gt;}
+目标规范:
+可以使用 主机名，Ip地址，网络，等等
+    比如: scanme.nmap.org, microsoft.com/24, ..." />
+    <meta name="keywords" content="Documetation,翻译,Linux,网安" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              nmap usage 简陋翻译版
+            </h2>
+            <div class="post-info">
+              <span>
+                2020-03-26
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/Kj7_GEyVa/" class="post-tag">
+                  # Documetation
+                </a>
+              
+                <a href="https://blog.writerpass.top/tnLrTRov0/" class="post-tag">
+                  # 翻译
+                </a>
+              
+                <a href="https://blog.writerpass.top/SRJbH_usc/" class="post-tag">
+                  # Linux
+                </a>
+              
+                <a href="https://blog.writerpass.top/NcT5l8Ymk/" class="post-tag">
+                  # 网安
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h4 id="namp扫描类型-选项扫描目标说明">namp[&lt;扫描类型&gt;... ][&lt;选项&gt;]{&lt;扫描目标说明&gt;}</h4>
+<p>目标规范:</p>
+<pre><code>可以使用 主机名，Ip地址，网络，等等
+    比如: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0.0-255.1-254
+-iL &lt;输入文件名&gt;: 从主机/网络列表中导入
+-iR &lt;num hosts&gt;: choose random targets
+--exclude &lt;主机名1[,主机名2][,主机名3],...&gt;: 排除主机/网络
+--excludefile &lt;排除文件&gt;: 从文件中导入排除列表
+</code></pre>
+<p>主机发现:</p>
+<pre><code>-sL: 简单地列出要扫描的目标
+-sn: 使用ping扫描，禁用端口扫描
+-Pn: 认为所有主机在线 跳过主机发现环节
+-PS/PA/PU/PY[端口列表]: 通过TCP SYN/ACK, UDP 或 SCTP 发现来提供端口
+-PE/PP/PM: ICMP输出,时间戳,网络掩码请求发现,
+-PO[协议列表]: IP协议ping
+-n/-r: 不进行dns解析/总是进行dns解析 默认根据实际情况
+-dns-servers &lt;server[,server2][server3]&gt;: 自定义dns服务器地址
+-system-dns: 使用系统的dns服务器
+-traceroute: 跟踪每一个主机的路由
+</code></pre>
+<p>扫描技术:</p>
+<pre><code>-sS/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scan
+-sU: UDP 扫描
+-sN/sF/sX: TCP Null, FIN, 和Xmas 扫描
+--scanflags &lt;flags&gt;: 自定义TCP扫描标记
+-sI &lt;zombie host[:探针端口]&gt;: 闲置扫描
+-sY/sZ: SCTP INIT/COOKIE-ECHO 扫描
+-sO: Ip协议扫描
+-b &lt;ftp中继主机&gt;: ftp反弹扫描
+</code></pre>
+<p>端口规范和扫描规则:</p>
+<pre><code>-p &lt;端口范围&gt;: 只扫描指定的端口
+    例子: -p22 -p1-65535 -p U:53,111,137,T:21-25,80,139,8080,S:9
+--exclude-ports &lt;端口范围&gt;: 从扫描范围中排除指定端口
+-F: 快速模式 比默认模式扫描更少的端口
+-r: 连续扫描端口, 不随机
+-top-ports &lt;数值&gt;: 扫描前几个最常用的端口
+--port-ratio &lt;比&gt;: 扫描更加常用的端口
+</code></pre>
+<p>服务/版本检测:</p>
+<pre><code>-sV: 开启探针端口来检测服务或版本信息
+--version-intensity &lt;level&gt;: 从0到9, 代表版本检测强度
+--version-light: 限制到最有可能的版本
+--version-all: 尝试每一个版本可能
+--version-trace: 用于debug, 显示详细的版本检测活动
+</code></pre>
+<p>使用脚本检测:</p>
+<pre><code>-sC: 等效于 --script=default
+--script=&lt;Lua 脚本&gt;: Lua脚本是一个用逗号分隔的脚本列表, 脚本文件或者脚本目录
+--script-args=&lt;n1=v1,[n2=v2]&gt; 提供脚本的参数
+--script-args-file=filename: 从文件中读取脚本的参数
+--script-trace: 显示发送和接收的全部数据
+--script-updatedb: 更新脚本数据库
+--script-help=&lt;Lua 脚本&gt;: 显示脚本的帮助信息
+</code></pre>
+<p>系统检测:</p>
+<pre><code>-O: 启用系统检测
+--osscan-limit: 限制系统检测的可能目标
+--osscan-guess: 更积极得检测系统
+</code></pre>
+<p>超时和性能:</p>
+<pre><code>时间选项的单位是秒, 或者在值后面加上ms s m或者h
+-T&lt;0-5&gt;: 设置计时模板, 时间更长或更短
+--min-hostgroup/max-hostfroup &lt;大小&gt;: 平行主机扫描组的大小
+--min-parallelism/max-parallelism &lt;numprobes&gt;: 探针并行化
+--min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout &lt;time&gt;: 指定探测超时时间
+--max-retries &lt;tries&gt;: 限制端口扫描探针重发的数量
+--host-timeout &lt;time&gt;: 超时放弃主机
+--scan-delay/--max-scan-delay &lt;time&gt;: 调整两个探针的时间间隔
+--min-rate &lt;number&gt;: 每秒发包的最小数量
+--max-rate &lt;number&gt;: 每秒发包的最大数量
+</code></pre>
+<p>防火墙/访问限制的规避和欺骗:</p>
+<pre><code>-f; --mtu &lt;val&gt;: 包分片
+-D &lt;诱饵1[,诱饵2][,诱饵3]&gt;: 伪装一个带有诱饵的扫描
+-S &lt;ip地址&gt;: 恶搞源地址。。。。意思应该是伪装源地址的意思吧
+-e &lt;接口&gt;: 使用特定的接口
+-g/--source-port &lt;端口号&gt;: 使用所给的端口号
+--proxies &lt;url1[,url2][,url3]&gt;: 使用http或者socks4代理
+--data &lt;十六进制字符串&gt;: 向发送的包添加一个十六进制有效载荷
+--data-string &lt;字符串&gt;: 向发送的包添加一个ASCII字符串
+--data-length &lt;数值&gt;: 向发送的包添加一个指定长度的随机数据串
+--ip-options &lt;选项&gt;: 发送带有特定ip选项的包
+--ttl &lt;val&gt;: 设置ip的ttl
+--spoof-mac &lt;mac地址/前缀/厂商名&gt;: 伪装你的MAC地址
+--badsum: 发送带有虚假TCP/UDP/SCTP校验和的包
+</code></pre>
+<p>输出:</p>
+<pre><code>-oN/-oX/-oS/-oG &lt;文件&gt;: 分别为 正常的输出,XML, (-oS没有理解), 图表格式 输出到文件
+-oA &lt;基础文件名&gt;: 一次输出上述三种格式的数据
+-v: 增加冗长的等级 v越多越甚
+-d: 提高debug等级 d越多越甚
+--reason: 显示端口处于特定状态的原因
+--open: 只显示(可能)开放的端口
+--packet-trace: 显示发送和接收的所有包
+--iflist: 用于debug, 输出主机端口和路由
+--append-output: 追加指定的输出文件, 而不是删除(覆盖)指定的输出文件
+--resume &lt;文件名&gt;: 恢复一个中断的扫描任务
+--stylesheet &lt;路径/链接&gt;: XSL 
+--webxml: 从Nmap.org获取更多可移植的xml样式表
+--no-stylesheet: 不使用样式表输出
+</code></pre>
+<p>杂项:</p>
+<pre><code>-6: 启用ipv6扫描
+-A: 同时启用系统检测, 版本检测, 脚本检测, 路由追踪
+--datadir &lt;文件夹目录&gt;: 自定义nmap的数据文件目录
+--send-eth/--send-ip: 使用原始以太网帧或ip数据包发送
+--privileged: 假设用户拥有完整的特权
+--unprivileged: 假设用户缺少原始的socket特权
+-V: 输出版本号
+-h: 输出这个帮助页面
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#namp%E6%89%AB%E6%8F%8F%E7%B1%BB%E5%9E%8B-%E9%80%89%E9%A1%B9%E6%89%AB%E6%8F%8F%E7%9B%AE%E6%A0%87%E8%AF%B4%E6%98%8E">namp[&lt;扫描类型&gt;... ][&lt;选项&gt;]{&lt;扫描目标说明&gt;}</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/shi-yong-dai-ma-gou-jian-ui/">
+              <h3 class="post-title">
+                Android 使用代码构建UI
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

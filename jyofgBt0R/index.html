@@ -1,0 +1,258 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Java 时间戳 格式化 | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Java 时间戳 格式化 | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="https://github.com/myXXX-repo/myDeskClock/blob/master/app/src/main/java/com/wh/mydeskclock/utils/TimeUtils.java
+public c..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Java 时间戳 格式化
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-09-18
+              </span>
+              <span>
+                2 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>https://github.com/myXXX-repo/myDeskClock/blob/master/app/src/main/java/com/wh/mydeskclock/utils/TimeUtils.java</p>
+<pre><code class="language-Java">public class TimeUtils {
+    public static final String fullDateTimeFormat = &quot;yyyy-MM-dd HH:mm:ss&quot;;
+    public static final String yMdTimeFormat = &quot;yyyy-MM-dd&quot;;
+
+
+    /**
+     * @describe 将长整型的时间戳转换成&quot;yyyy-MM-dd&quot;格式的时间
+     * @args MS long 长整型的毫秒时间戳
+     * @return 返回格式化后的字符串
+     * */
+    public static String getFormattedTime(long MS){
+        return genDateFormat(fullDateTimeFormat).format(new Date(MS));
+    }
+
+    /**
+     * @describe 将长整型的时间戳转换成自定义的格式
+     * @args MS long 长整型的毫秒时间戳
+     *       format String 格式
+     * @return 返回格式化后的字符串
+     * */
+    public static String getFormattedTime(long MS,String format){
+        return genDateFormat(format).format(new Date(MS));
+    }
+
+    /**
+     * @describe 将格式化的时间戳字符串转换成长整型的毫秒时间戳
+     * @args formattedTime String 格式化的时间戳
+     * @return Long 返回转换后的长整型时间戳
+     * */
+    public static long getMSFromFormattedTime(String formattedTime) throws ParseException {
+        Date date = genDateFormat(fullDateTimeFormat).parse(formattedTime);
+        if (date != null) {
+            return date.getTime();
+        }else {
+            return 0L;
+        }
+    }
+
+    public static String getTodayDateYMD(){
+        return getFormattedTime(System.currentTimeMillis(),&quot;yyyy-MM-dd&quot;);
+    }
+
+    /**
+     * @describe 输入格式字符串,返回格式的数据结构
+     * @args stringFormat String 格式字符串
+     * @return 返回格式数据结构
+     * */
+    public static SimpleDateFormat genDateFormat(String stringFormat){
+        return new SimpleDateFormat(stringFormat, Locale.CHINA);
+    }
+
+    /**
+     * @describe 输入星期的日期 返回汉字
+     * @args num int 输入的日期
+     * @return String 返回日期
+     * */
+    public static String num2Chinese(int num){
+        String[] c = {&quot;六&quot;, &quot;日&quot;, &quot;一&quot;, &quot;二&quot;, &quot;三&quot;, &quot;四&quot;, &quot;五&quot;};
+        if (num &gt; -1 &amp;&amp; num &lt; c.length) {
+            return c[num];
+        } else {
+            return c[0];
+        }
+    }
+}
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/Pv-RCZoWg/">
+              <h3 class="post-title">
+                Event Bus 最佳实践
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,336 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>python3 函数 | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="python3 函数 | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="1.函数参数
+1.位置参数
+
+arg1 - 位置参数 ，这些参数在调用函数 (call function) 时位置要固定。
+
+2.默认参数
+
+arg2 = v - 默认参数 = 默认值，调用函数时，默认参数的值如果没有传入，则被认为是默认值..." />
+    <meta name="keywords" content="Python3" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              python3 函数
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-01-11
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/oD2ZzofKq/" class="post-tag">
+                  # Python3
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="1函数参数">1.函数参数</h3>
+<h4 id="1位置参数">1.位置参数</h4>
+<ul>
+<li><code>arg1</code> - 位置参数 ，这些参数在调用函数 (call function) 时位置要固定。</li>
+</ul>
+<h4 id="2默认参数">2.默认参数</h4>
+<ul>
+<li><code>arg2 = v</code> - 默认参数 = 默认值，调用函数时，默认参数的值如果没有传入，则被认为是默认值。</li>
+<li>默认参数一定要放在位置参数 <b>后面</b>，不然程序会报错。</li>
+<li>Python 允许函数调用时参数的顺序与声明时不一致，因为 Python 解释器能够用参数名匹配参数值。</li>
+</ul>
+<h4 id="3可变参数">3.可变参数</h4>
+<pre><code class="language-python">def functionname(arg1, arg2=v, *args):
+    function_suite
+    return &quot;a&quot;
+</code></pre>
+<ul>
+<li><code>*args</code> - 可变参数，可以是从零个到任意个，自动组装成元组。</li>
+<li>加了星号（*）的变量名会存放所有未命名的变量参数。</li>
+</ul>
+<pre><code class="language-python">def printinfo(arg1, *args):
+    print(arg1)
+    for var in args:
+        print(var)
+
+
+printinfo(10)  # 10
+printinfo(70, 60, 50)
+# 70
+# 60
+# 50
+</code></pre>
+<h4 id="4关键字参数">4.关键字参数</h4>
+<pre><code class="language-python">def functionname(arg1, arg2=v, *args, **kw):
+    &quot;函数_文档字符串&quot;
+    function_suite
+</code></pre>
+<ul>
+<li><code>**kw</code> - 关键字参数，可以是从零个到任意个，自动组装成字典</li>
+</ul>
+<pre><code class="language-python">def printinfo(arg1, *args, **kwargs):
+    print(arg1)
+    print(args)
+    print(kwargs)
+
+printinfo(70, 60, 50)
+# 70
+# (60, 50)
+# {}
+printinfo(70, 60, 50, a=1, b=2)
+# 70
+# (60, 50)
+# {'a': 1, 'b': 2}
+</code></pre>
+<p>-「可变参数」和「关键字参数」的同异总结如下：</p>
+<ul>
+<li>可变参数允许传入零个到任意个参数，它们在函数调用时自动组装为一个元组 (tuple)。</li>
+<li>关键字参数允许传入零个到任意个参数，它们在函数内部自动组装为一个字典 (dict)。</li>
+</ul>
+<h4 id="5命名关键字参数">5.命名关键字参数</h4>
+<pre><code class="language-python">def functionname(arg1, arg2=v, args, *, nkw, *kw):
+       &quot;函数_文档字符串&quot;
+       function_suite
+       return [expression]
+</code></pre>
+<ul>
+<li><code>*, nkw</code> - 命名关键字参数，用户想要输入的关键字参数，定义方式是在nkw 前面加个分隔符 <code>*</code>。</li>
+<li>如果要限制关键字参数的名字，就可以用「命名关键字参数」</li>
+<li>使用命名关键字参数时，要特别注意不能缺少参数名。</li>
+</ul>
+<pre><code class="language-python">def printinfo(arg1, *, nkw, **kwargs):
+    print(arg1)
+    print(nkw)
+    print(kwargs)
+
+printinfo(70, nkw=10, a=1, b=2)
+# 70
+# 10
+# {'a': 1, 'b': 2}
+
+printinfo(70, 10, a=1, b=2)
+# TypeError: printinfo() takes 1 positional argument but 2 were given
+</code></pre>
+<ul>
+<li>没有写参数名<code>nwk</code>，因此 10 被当成「位置参数」，而原函数只有 1 个位置函数，现在调用了 2 个，因此程序会报错。</li>
+</ul>
+<h4 id="6参数组合">6.参数组合</h4>
+<p>在 Python 中定义函数，可以用位置参数、默认参数、可变参数、命名关键字参数和关键字参数，这 5 种参数中的 4 个都可以一起使用，但是注意，参数定义的顺序必须是：</p>
+<ul>
+<li>位置参数、默认参数、可变参数和关键字参数。</li>
+<li>位置参数、默认参数、命名关键字参数和关键字参数。</li>
+</ul>
+<p>要注意定义可变参数和关键字参数的语法：</p>
+<ul>
+<li><code>*args</code> 是可变参数，<code>args</code> 接收的是一个 <code>tuple</code></li>
+<li><code>**kw</code> 是关键字参数，<code>kw</code> 接收的是一个 <code>dict</code></li>
+</ul>
+<p>命名关键字参数是为了限制调用者可以传入的参数名，同时可以提供默认值。定义命名关键字参数不要忘了写分隔符 <code>*</code>，否则定义的是位置参数</p>
+<p>警告：虽然可以组合多达 5 种参数，但不要同时使用太多的组合，否则函数很难懂。</p>
+<h3 id="2变量作用域">2.变量作用域</h3>
+<ul>
+<li>Python 中，程序的变量并不是在哪个位置都可以访问的，访问权限决定于这个变量是在哪里赋值的。</li>
+<li>定义在函数内部的变量拥有局部作用域，该变量称为局部变量。</li>
+<li>定义在函数外部的变量拥有全局作用域，该变量称为全局变量。</li>
+<li>局部变量只能在其被声明的函数内部访问，而全局变量可以在整个程序范围内访问。</li>
+<li>当内部作用域想修改外部作用域的变量时，就要用到<code>global</code>和<code>nonlocal</code>关键字了。</li>
+</ul>
+<h3 id="3闭包">3.闭包</h3>
+<ul>
+<li>是函数式编程的一个重要的语法结构，是一种特殊的内嵌函数。</li>
+<li>如果在一个内部函数里对外层非全局作用域的变量进行引用，那么内部函数就被认为是闭包。</li>
+<li>通过闭包可以访问外层非全局作用域的变量，这个作用域称为 <b>闭包作用域</b>。</li>
+</ul>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0">1.函数参数</a>
+<ul>
+<li><a href="#1%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0">1.位置参数</a></li>
+<li><a href="#2%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0">2.默认参数</a></li>
+<li><a href="#3%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">3.可变参数</a></li>
+<li><a href="#4%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0">4.关键字参数</a></li>
+<li><a href="#5%E5%91%BD%E5%90%8D%E5%85%B3%E9%94%AE%E5%AD%97%E5%8F%82%E6%95%B0">5.命名关键字参数</a></li>
+<li><a href="#6%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88">6.参数组合</a></li>
+</ul>
+</li>
+<li><a href="#2%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F">2.变量作用域</a></li>
+<li><a href="#3%E9%97%AD%E5%8C%85">3.闭包</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/SqwYQ0qOy/">
+              <h3 class="post-title">
+                python3 序列
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

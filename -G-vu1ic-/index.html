@@ -1,0 +1,336 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Complie lede (Openwrt) | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Complie lede (Openwrt) | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="推荐系统 Ubuntu 18.04
+安装依赖软件包
+sudo apt-get update
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gette..." />
+    <meta name="keywords" content="Compile,Openwrt,Linux" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Complie lede (Openwrt)
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-12-17
+              </span>
+              <span>
+                4 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/AlcgNWXXJ/" class="post-tag">
+                  # Compile
+                </a>
+              
+                <a href="https://blog.writerpass.top/BN69N97Ai3/" class="post-tag">
+                  # Openwrt
+                </a>
+              
+                <a href="https://blog.writerpass.top/SRJbH_usc/" class="post-tag">
+                  # Linux
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="推荐系统-ubuntu-1804">推荐系统 Ubuntu 18.04</h1>
+<h1 id="安装依赖软件包">安装依赖软件包</h1>
+<pre><code class="language-shell">sudo apt-get update
+sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3.5 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib
+</code></pre>
+<h1 id="源码">源码</h1>
+<pre><code class="language-shell">git clone https://github.com/coolsnowwolf/lede -b master --depth 1
+</code></pre>
+<h1 id="获取-安装软件库">获取 &amp;&amp; 安装软件库</h1>
+<pre><code class="language-shell">cd lede
+./scripts/feeds update -a
+./scripts/feeds install -a
+</code></pre>
+<h1 id="配置">配置</h1>
+<pre><code class="language-shell">make menuconfig
+</code></pre>
+<p>听说首次编译最好选择完架构后直接编译，这样会极大提高成功率</p>
+<h1 id="预下载编译所需的软件包">预下载编译所需的软件包</h1>
+<pre><code class="language-shell">make download -j8 V=s
+</code></pre>
+<p>下载过程中如果遇到反复下载失败的资源，可以手动下载放到相应位置，记得删除之前下载失败的残留文件</p>
+<h1 id="检查文件完整性">检查文件完整性</h1>
+<pre><code class="language-shell">find dl -size -1024c -exec ls -l {} \;
+</code></pre>
+<p>用来检查小于1KB的文件，如果存在，就用这条命令删除然后重新 make download，反复检查</p>
+<h1 id="开始编译">开始编译</h1>
+<pre><code class="language-shell">make -j1 V=s
+</code></pre>
+<p>V=s 用来输出详细日志</p>
+<h1 id="再次编译">再次编译</h1>
+<h2 id="更新">更新</h2>
+<ul>
+<li>更新系统软件包</li>
+</ul>
+<pre><code class="language-shell">sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre>
+<ul>
+<li>拉取 OpenWrt 源码更新</li>
+</ul>
+<pre><code class="language-shell">git pull
+</code></pre>
+<ul>
+<li>更新 feeds</li>
+</ul>
+<pre><code class="language-shell">./scripts/feeds update -a
+</code></pre>
+<ul>
+<li>安装 feeds 中软件包</li>
+</ul>
+<pre><code class="language-shell">./scripts/feeds install -a
+</code></pre>
+<h2 id="文件清理">文件清理</h2>
+<ul>
+<li>清除旧的编译产物（可选）</li>
+</ul>
+<pre><code class="language-shell">make clean
+</code></pre>
+<p>在源码有大规模更新或者内核更新后执行，以保证编译质量。此操作会删除/bin和/build_dir目录中的文件。</p>
+<ul>
+<li>清除旧的编译产物、交叉编译工具及工具链等目录（可选）</li>
+</ul>
+<pre><code class="language-shell">make dirclean
+</code></pre>
+<p>更换架构编译前必须执行。此操作会删除/bin和/build_dir目录的中的文件(make clean)以及/staging_dir、/toolchain、/tmp和/logs中的文件。</p>
+<ul>
+<li>清除 Open­Wrt 源码以外的文件（可选）</li>
+</ul>
+<pre><code class="language-shell">make distclean
+</code></pre>
+<p>除非是做开发，并打算 push 到 GitHub 这样的远程仓库，否则几乎用不到。此操作相当于make dirclean外加删除/dl、/feeds目录和.config文件。</p>
+<ul>
+<li>还原 Open­Wrt 源码到初始状态（可选）</li>
+</ul>
+<pre><code class="language-shell">git clean -xdf
+</code></pre>
+<p>如果把源码改坏了，或者长时间没有进行编译时使用。</p>
+<ul>
+<li>清除临时文件</li>
+</ul>
+<pre><code class="language-shell">rm -rf tmp
+</code></pre>
+<p>删除执行make menuconfig后产生的一些临时文件，包括一些软件包的检索信息，删除后会重新加载package目录下的软件包。若不删除会导致一些新加入的软件包不显示。</p>
+<ul>
+<li>删除编译配置文件</li>
+</ul>
+<pre><code class="language-shell">rm -f .config
+</code></pre>
+<p>在不删除的情况下如果取消选择某些组件它的依赖组件不会自动取消，所以对于需要调整组件的情况下建议删除。</p>
+<h2 id="编译">编译</h2>
+<ul>
+<li>调整 Open­Wrt 系统组件</li>
+</ul>
+<pre><code class="language-shell">make menuconfig
+</code></pre>
+<p>如果不打算调整组件则输入make defconfig，它会检测编译环境并根据更新自动调整编译配置文件。</p>
+<ul>
+<li>预下载编译所需的软件包</li>
+</ul>
+<pre><code class="language-shell">make download -j8 V=s
+</code></pre>
+<ul>
+<li>检查文件完整性</li>
+</ul>
+<pre><code class="language-shell">find dl -size -1024c -exec ls -l {} \;
+</code></pre>
+<ul>
+<li>开始编译</li>
+</ul>
+<pre><code class="language-shell">make -j$(nproc) || make -j1 || make -j1 V=s
+</code></pre>
+<p>多线程编译失败后自动进入单线程编译，失败则输出详细日志。</p>
+<h1 id="感谢前辈的教程">感谢前辈的教程</h1>
+<p>https://p3terx.com/archives/openwrt-compilation-steps-and-commands.html</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F-ubuntu-1804">推荐系统 Ubuntu 18.04</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E8%BD%AF%E4%BB%B6%E5%8C%85">安装依赖软件包</a></li>
+<li><a href="#%E6%BA%90%E7%A0%81">源码</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96-%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%BA%93">获取 &amp;&amp; 安装软件库</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE">配置</a></li>
+<li><a href="#%E9%A2%84%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91%E6%89%80%E9%9C%80%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8C%85">预下载编译所需的软件包</a></li>
+<li><a href="#%E6%A3%80%E6%9F%A5%E6%96%87%E4%BB%B6%E5%AE%8C%E6%95%B4%E6%80%A7">检查文件完整性</a></li>
+<li><a href="#%E5%BC%80%E5%A7%8B%E7%BC%96%E8%AF%91">开始编译</a></li>
+<li><a href="#%E5%86%8D%E6%AC%A1%E7%BC%96%E8%AF%91">再次编译</a>
+<ul>
+<li><a href="#%E6%9B%B4%E6%96%B0">更新</a></li>
+<li><a href="#%E6%96%87%E4%BB%B6%E6%B8%85%E7%90%86">文件清理</a></li>
+<li><a href="#%E7%BC%96%E8%AF%91">编译</a></li>
+</ul>
+</li>
+<li><a href="#%E6%84%9F%E8%B0%A2%E5%89%8D%E8%BE%88%E7%9A%84%E6%95%99%E7%A8%8B">感谢前辈的教程</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/72dQSUa-7/">
+              <h3 class="post-title">
+                Run dreamacro/clash-premium on Docker
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

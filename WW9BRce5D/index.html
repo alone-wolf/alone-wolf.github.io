@@ -1,0 +1,407 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>python3 字符串 | WH&#39;s Blog</title>
+<link rel="shortcut icon" href="https://blog.writerpass.top/favicon.ico?v=1691630620161">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.writerpass.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="python3 字符串 | WH&#39;s Blog - Atom Feed" href="https://blog.writerpass.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162134168-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162134168-1');
+</script>
+
+
+    <meta name="description" content="内置方法
+
+
+capitalize() 将字符串的第一个字符转换为大写。
+
+
+lower() 转换字符串中所有大写字符为小写。
+
+
+upper() 转换字符串中的小写字母为大写。
+
+
+swapcase() 将字符串中大写转换为小写，小写转换..." />
+    <meta name="keywords" content="Python3" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.writerpass.top">
+  <img class="avatar" src="https://blog.writerpass.top/images/avatar.png?v=1691630620161" alt="">
+  </a>
+  <h1 class="site-title">
+    WH&#39;s Blog
+  </h1>
+  <p class="site-description">
+    it's just a blog
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="/friends" class="menu">
+          友链
+        </a>
+      
+    
+      
+        <a href="https://blog.writerpass.top/atom.xml" class="menu" target="_blank">
+          Feed|RSS
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/alone-wolf" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              python3 字符串
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-01-10
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://blog.writerpass.top/oD2ZzofKq/" class="post-tag">
+                  # Python3
+                </a>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="内置方法">内置方法</h3>
+<ul>
+<li>
+<p><code>capitalize()</code> 将字符串的第一个字符转换为大写。</p>
+</li>
+<li>
+<p><code>lower()</code> 转换字符串中所有大写字符为小写。</p>
+</li>
+<li>
+<p><code>upper()</code> 转换字符串中的小写字母为大写。</p>
+</li>
+<li>
+<p><code>swapcase()</code> 将字符串中大写转换为小写，小写转换为大写。</p>
+</li>
+<li>
+<p><code>count(str, beg= 0,end=len(string))</code> 返回<code>str</code>在 string 里面出现的次数，如果<code>beg</code>或者<code>end</code>指定则返回指定范围内<code>str</code>出现的次数。</p>
+</li>
+<li>
+<p><code>endswith(suffix, beg=0, end=len(string))</code> 检查字符串是否以指定子字符串 <code>suffix</code> 结束，如果是，返回 True，否则返回 False。如果 <code>beg</code> 和 <code>end</code> 指定值，则在指定范围内检查。</p>
+</li>
+<li>
+<p><code>startswith(substr, beg=0,end=len(string))</code> 检查字符串是否以指定子字符串 <code>substr</code> 开头，如果是，返回 True，否则返回 False。如果 <code>beg</code> 和 <code>end</code> 指定值，则在指定范围内检查。</p>
+</li>
+<li>
+<p><code>find(str, beg=0, end=len(string))</code> 检测 <code>str</code> 是否包含在字符串中，如果指定范围 <code>beg</code> 和 <code>end</code>，则检查是否包含在指定范围内，如果包含，返回开始的索引值，否则返回 -1。</p>
+</li>
+<li>
+<p><code>rfind(str, beg=0,end=len(string))</code> 类似于 <code>find()</code> 函数，不过是从右边开始查找。</p>
+</li>
+<li>
+<p><code>isnumeric()</code> 如果字符串中只包含数字字符，则返回 True，否则返回 False。</p>
+</li>
+<li>
+<p><code>ljust(width[, fillchar])</code>返回一个原字符串左对齐，并使用<code>fillchar</code>（默认空格）填充至长度<code>width</code>的新字符串。</p>
+</li>
+<li>
+<p><code>rjust(width[, fillchar])</code>返回一个原字符串右对齐，并使用<code>fillchar</code>（默认空格）填充至长度<code>width</code>的新字符串。</p>
+</li>
+<li>
+<p><code>lstrip([chars])</code> 截掉字符串左边的空格或指定字符。</p>
+</li>
+<li>
+<p><code>rstrip([chars])</code> 删除字符串末尾的空格或指定字符。</p>
+</li>
+<li>
+<p><code>strip([chars])</code> 在字符串上执行<code>lstrip()</code>和<code>rstrip()</code>。</p>
+</li>
+<li>
+<p><code>partition(sub)</code> 找到子字符串sub，把字符串分为一个三元组<code>(pre_sub,sub,fol_sub)</code>，如果字符串中不包含sub则返回<code>('原字符串','','')</code>。</p>
+</li>
+<li>
+<p><code>rpartition(sub)</code>类似于<code>partition()</code>方法，不过是从右边开始查找。</p>
+</li>
+<li>
+<p><code>replace(old, new [, max])</code> 把 将字符串中的<code>old</code>替换成<code>new</code>，如果<code>max</code>指定，则替换不超过<code>max</code>次。</p>
+</li>
+<li>
+<p><code>split(str=&quot;&quot;, num)</code> 不带参数默认是以空格为分隔符切片字符串，如果<code>num</code>参数有设置，则仅分隔<code>num</code>个子字符串，返回切片后的子字符串拼接的列表。</p>
+</li>
+<li>
+<p><code>splitlines([keepends])</code> 按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表，如果参数<code>keepends</code>为 False，不包含换行符，如果为 True，则保留换行符。</p>
+</li>
+<li>
+<p><code>maketrans(intab, outtab)</code> 创建字符映射的转换表，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。</p>
+</li>
+<li>
+<p><code>translate(table, deletechars=&quot;&quot;)</code> 根据参数<code>table</code>给出的表，转换字符串的字符，要过滤掉的字符放到<code>deletechars</code>参数中。</p>
+</li>
+<li>
+<p><code>format</code> 格式化函数</p>
+</li>
+<li>
+<p>Python 字符串格式化符号</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符   号</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%c</td>
+<td style="text-align:left">格式化字符及其ASCII码</td>
+</tr>
+<tr>
+<td style="text-align:center">%s</td>
+<td style="text-align:left">格式化字符串，用str()方法处理对象</td>
+</tr>
+<tr>
+<td style="text-align:center">%r</td>
+<td style="text-align:left">格式化字符串，用rper()方法处理对象</td>
+</tr>
+<tr>
+<td style="text-align:center">%d</td>
+<td style="text-align:left">格式化整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%o</td>
+<td style="text-align:left">格式化无符号八进制数</td>
+</tr>
+<tr>
+<td style="text-align:center">%x</td>
+<td style="text-align:left">格式化无符号十六进制数</td>
+</tr>
+<tr>
+<td style="text-align:center">%X</td>
+<td style="text-align:left">格式化无符号十六进制数（大写）</td>
+</tr>
+<tr>
+<td style="text-align:center">%f</td>
+<td style="text-align:left">格式化浮点数字，可指定小数点后的精度</td>
+</tr>
+<tr>
+<td style="text-align:center">%e</td>
+<td style="text-align:left">用科学计数法格式化浮点数</td>
+</tr>
+<tr>
+<td style="text-align:center">%E</td>
+<td style="text-align:left">作用同%e，用科学计数法格式化浮点数</td>
+</tr>
+<tr>
+<td style="text-align:center">%g</td>
+<td style="text-align:left">根据值的大小决定使用%f或%e</td>
+</tr>
+<tr>
+<td style="text-align:center">%G</td>
+<td style="text-align:left">作用同%g，根据值的大小决定使用%f或%E</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">print('%c' % 97)  # a
+print('%c %c %c' % (97, 98, 99))  # a b c
+print('%d + %d = %d' % (4, 5, 9))  # 4 + 5 = 9
+print(&quot;我叫 %s 今年 %d 岁!&quot; % ('小明', 10))  # 我叫 小明 今年 10 岁!
+print('%o' % 10)  # 12
+print('%x' % 10)  # a
+print('%X' % 10)  # A
+print('%f' % 27.658)  # 27.658000
+print('%e' % 27.658)  # 2.765800e+01
+print('%E' % 27.658)  # 2.765800E+01
+print('%g' % 27.658)  # 27.658
+text = &quot;I am %d years old.&quot; % 22
+print(&quot;I said: %s.&quot; % text)  # I said: I am 22 years old..
+print(&quot;I said: %r.&quot; % text)  # I said: 'I am 22 years old.'
+</code></pre>
+<ul>
+<li>格式化操作符辅助指令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>m.n</code></td>
+<td style="text-align:left">m 是显示的最小总宽度,n 是小数点后的位数（如果可用的话）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-</code></td>
+<td style="text-align:left">用作左对齐</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td style="text-align:left">在正数前面显示加号( + )</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>#</code></td>
+<td style="text-align:left">在八进制数前面显示零('0')，在十六进制前面显示'0x'或者'0X'(取决于用的是'x'还是'X')</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:left">显示的数字前面填充'0'而不是默认的空格</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">print('%5.1f' % 27.658)  # ' 27.7'
+print('%.2e' % 27.658)  # 2.77e+01
+print('%10d' % 10)  # '        10'
+print('%-10d' % 10)  # '10        '
+print('%+d' % 10)  # +10
+print('%#o' % 10)  # 0o12
+print('%#x' % 108)  # 0x6c
+print('%010d' % 5)  # 0000000005
+</code></pre>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95">内置方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.writerpass.top/6gH49Z8VY/">
+              <h3 class="post-title">
+                python3 元组
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <a href="https://travellings.link/" target="blank" title="开往-友链接力"><img
+    src="https://travellings.link/assets/logo.gif" alt="开往-友链接力" width="120"></a>&nbsp;
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>&nbsp;&nbsp;<a href="https://baidu.com">Baidu</a>
+  <a class="rss" href="https://blog.writerpass.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
